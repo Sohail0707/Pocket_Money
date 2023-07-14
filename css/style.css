@@ -1,0 +1,80 @@
+/* /////////// Authentication /////////// */
+/* ////////////////////////////////////// */
+#authentication_page {
+  height: 100%;
+  padding: 3.6rem;
+  background: var(--color_primary);
+}
+
+#authentication_page input[type="text"],
+#authentication_page input[type="email"],
+#authentication_page input[type="password"] {
+  outline: none;
+  padding: 1.4rem;
+  background: transparent;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--color_light);
+  color: var(--color_light);
+}
+
+#authentication_page input[type="text"]::placeholder,
+#authentication_page input[type="email"]::placeholder,
+#authentication_page input[type="password"]::placeholder {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color_light);
+}
+
+#authentication_page input[type="submit"] {
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+  color: var(--color_primary);
+  background: var(--color_light);
+}
+
+#authentication_page .main_heading {
+  text-transform: capitalize;
+  color: var(--color_light);
+  margin-bottom: 1.6rem;
+}
+
+#authentication_page .txt,
+#authentication_page .link {
+  text-transform: capitalize;
+  color: var(--color_light);
+  display: inline-block;
+}
+
+#authentication_page .link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#log_in_page,
+#sign_up_page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+#log_in_form,
+#sign_up_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* ////////// Sign Up form visibility ////////// */
+#sign_up_page {
+  display: none;
+}
