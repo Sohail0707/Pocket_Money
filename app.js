@@ -49,6 +49,25 @@ app.get("/sign_up", (req, res) => {
   );
 });
 
+//Route for dashboard
+app.get("/dashboard", (req, res) => {
+  fs.readFile(
+    `${__dirname}/pages/main_page.html`,
+    "utf-8",
+    (err, main_page) => {
+      fs.readFile(
+        `${__dirname}/templates/dashboard.html`,
+        "utf-8",
+        (err, dashboard_page) => {
+          let result = body.replace(/{%PAGE%}/, main_page);
+          result = result.replace(/{%PAGE%}/, dashboard_page);
+          res.send(result);
+        }
+      );
+    }
+  );
+});
+
 app.listen(1800, function () {
   console.log("Application started at port:1800");
 });

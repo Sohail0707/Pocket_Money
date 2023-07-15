@@ -17,6 +17,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   line-height: 1;
   width: 36rem;
   height: 64rem;
