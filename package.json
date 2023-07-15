@@ -1,0 +1,30 @@
+{
+  "name": "pocket_money",
+  "version": "1.0.0",
+  "description": "This app is responsible for managing day to day budget for users and peovide meaningful insights on their budget",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.7",
+    "express": "^4.18.2",
+    "express-sanitizer": "^1.0.6",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "moment-timezone": "^0.5.34",
+    "mongoose": "^6.6.5",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.0.0",
+    "striptags": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
