@@ -30,54 +30,70 @@ body {
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h2_medium {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 1;
+  text-transform: capitalize;
+}
+
+.h3_semi {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: capitalize;
 }
 
 .h3_medium {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h4_semi {
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h4_medium {
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h4_regular {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h5_semi {
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h5_medium {
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 .h5_regular {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1;
+  text-transform: capitalize;
 }
 
 /* /////////// Different shadows /////////// */
@@ -88,4 +104,8 @@ body {
 
 .component_shadow {
   box-shadow: 0 0.7rem 1.5rem rgba(0, 0, 0, 0.05);
+}
+
+.text_shadow {
+  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
 }

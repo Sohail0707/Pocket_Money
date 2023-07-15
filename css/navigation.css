@@ -1,0 +1,47 @@
+/* ////////////////////////////////////////////////// */
+/* /////////////////// navigation /////////////////// */
+/* ////////////////////////////////////////////////// */
+#navigation {
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 1.4rem;
+  width: 100%;
+  background: #fff;
+}
+
+#navigation .nav_list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  width: 100%;
+}
+
+#navigation .link:is(:link, :visited) {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#navigation .icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color_dark);
+}
+
+#navigation .icon_solid {
+  display: none;
+  color: var(--color_primary);
+}
+
+#navigation .txt {
+  text-transform: capitalize;
+  font-size: 1rem;
+  line-height: 1;
+  color: #808080;
+}
