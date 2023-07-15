@@ -23,6 +23,10 @@ app.get(["/", "/log_in"], (req, res) => {
         (err, log_in_page) => {
           let result = body.replace(/{%PAGE%}/, authentication_page);
           result = result.replace(/{%LOG_IN%}/, log_in_page);
+          result = result.replace(
+            /{%CSS%}/,
+            `<link rel="stylesheet" href="authentication.css" />`
+          );
           res.send(result);
         }
       );
@@ -42,6 +46,10 @@ app.get("/sign_up", (req, res) => {
         (err, sign_up_page) => {
           let result = body.replace(/{%PAGE%}/, authentication_page);
           result = result.replace(/{%LOG_IN%}/, sign_up_page);
+          result = result.replace(
+            /{%CSS%}/,
+            `<link rel="stylesheet" href="authentication.css" />`
+          );
           res.send(result);
         }
       );
@@ -61,6 +69,11 @@ app.get("/dashboard", (req, res) => {
         (err, dashboard_page) => {
           let result = body.replace(/{%PAGE%}/, main_page);
           result = result.replace(/{%PAGE%}/, dashboard_page);
+          result = result.replace(
+            /{%CSS%}/,
+            `<link rel="stylesheet" href="navigation.css" />
+            <link rel="stylesheet" href="dashboard.css" />`
+          );
           res.send(result);
         }
       );
