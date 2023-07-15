@@ -73,8 +73,3 @@
   flex-direction: column;
   gap: 1.6rem;
 }
-
-/* ////////// Sign Up form visibility ////////// */
-#sign_up_page {
-  display: none;
-}
