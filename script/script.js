@@ -30,3 +30,9 @@ window.addEventListener("load", function () {
     navText[3].style.color = `var(--color_primary)`;
   }
 });
+
+// ////////////// Main container margin top
+const mainContainer = document.querySelector("#dashboard .main_container");
+const topContainer = document.querySelector("#dashboard .top_container");
+
+mainContainer.style.marginTop = `${(topContainer.offsetHeight - 20) / 10}rem`;

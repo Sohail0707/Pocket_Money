@@ -81,12 +81,157 @@
 #dashboard {
   height: 100%;
   background: var(--color_light);
+  position: relative;
+}
+
+#dashboard .top_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 4rem 0 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+  background: linear-gradient(to bottom right, #46ecce, #7146ec);
+  z-index: 1;
+}
+
+#dashboard .top_container .top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  color: var(--color_light);
+  text-transform: capitalize;
+}
+
+#dashboard .top_container .bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#dashboard .top_container .left,
+#dashboard .top_container .right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 1.6rem;
+  background: var(--color_light);
+}
+
+#dashboard .top_container .wealth {
+  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+#dashboard .top_container .mode {
+  text-transform: uppercase;
+  color: var(--color_dark);
+}
+
+#dashboard .top_container .amount {
+  color: var(--color_primary);
+}
+
+/* //////////////// Main Container /////////////// */
+#dashboard .main_container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.6rem;
+  background: var(--color_light);
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  box-shadow: 0 -1rem 2.5rem rgba(21, 10, 51, 0.1);
+  z-index: 3;
+}
+
+#dashboard .main_container .income_expense {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+  background: var(--color_white);
+}
+
+#dashboard .main_container .income_expense .top {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+#dashboard .main_container .income_expense .top .indicator {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  border-radius: 1.2rem;
+  background: var(--color_primary);
+  z-index: 0;
+}
+
+#dashboard .main_container .btn_income,
+#dashboard .main_container .btn_expense {
+  position: relative;
+  z-index: 3;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  border: none;
+  background: transparent;
+  width: 50%;
+  padding: 1.8rem;
+  color: var(--color_dark);
+}
+
+#dashboard .main_container .btn_income {
+  color: var(--color_light);
+}
+
+#dashboard .main_container .btn_income .icon {
+  height: 1.4rem;
+  fill: var(--color_light);
+}
+
+#dashboard .main_container .btn_expense .icon {
+  height: 1.4rem;
+  fill: var(--color_dark);
+}
+
+#dashboard .main_container .income_expense .bottom {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+#dashboard .main_container .income_expense .bottom .total {
+  color: var(--color_primary);
+}
+
+#dashboard .main_container .income_expense .bottom .icon {
+  fill: var(--color_primary);
+  height: 1.4rem;
 }
 
 /* ////////////////////////////////////////////////// */
 /* /////////////////// navigation /////////////////// */
 /* ////////////////////////////////////////////////// */
 #navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   padding: 1.4rem;
   width: 100%;
