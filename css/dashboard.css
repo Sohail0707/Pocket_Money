@@ -6,7 +6,6 @@
   /* background: var(--color_light); */
   position: relative;
   overflow-y: scroll;
-  padding-bottom: 7rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -77,7 +76,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.6rem;
+  padding: 1.6rem 1.6rem 16rem;
   background: var(--color_light);
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
@@ -113,11 +112,13 @@
   position: absolute;
   left: 0;
   top: 0;
+  transform: translateX(0);
   height: 100%;
   width: 50%;
   border-radius: 1.2rem;
   background: var(--color_primary_1);
   z-index: 0;
+  transition: all 0.3s;
 }
 
 .main_container .btn_income,
@@ -134,6 +135,7 @@
   width: 50%;
   padding: 1.8rem;
   color: var(--color_dark);
+  transition: all 0.3s;
 }
 
 .main_container .btn_income .h5_semi,
@@ -148,11 +150,13 @@
 .main_container .btn_income .icon {
   height: 1.4rem;
   fill: var(--color_light);
+  transition: all 0.3s;
 }
 
 .main_container .btn_expense .icon {
   height: 1.4rem;
   fill: var(--color_dark);
+  transition: all 0.3s;
 }
 
 .main_container .income_expense .bottom {
@@ -249,8 +253,8 @@
   background: var(--color_light);
   padding: 0.8rem;
   border-radius: 50%;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .budget_box .left .txt,
@@ -271,8 +275,8 @@
 }
 
 .budget_box .ellipse {
-  width: 12rem;
-  height: 12rem;
+  width: 11rem;
+  height: 11rem;
   transform: rotate(-90deg);
 }
 
@@ -303,13 +307,12 @@
 
 .budget_section .budget .left_box .logo_alphabet {
   color: var(--color_white);
-  height: 4rem;
-  width: 4rem;
+  height: 4.5rem;
+  width: 4.5rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: crimson;
   border-radius: 50%;
 }
 
@@ -337,18 +340,29 @@
 }
 
 .budget_section .budget .right_box .ellipse {
-  height: 5.5rem;
-  width: 5.5rem;
+  height: 5rem;
+  width: 5rem;
   transform: rotate(-90deg);
 }
 
 .budget_section .budget .right_box .ellipse .circle {
   width: 100%;
   height: 100%;
-  stroke: var(--color_primary);
   stroke-width: 1.2rem;
-  stroke-dasharray: 28rem;
-  stroke-dashoffset: 5.6rem;
+  stroke-dasharray: 27.02rem;
+}
+
+.c1 .circle {
+  stroke: #ea6988;
+}
+.c2 .circle {
+  stroke: #69b4ea;
+}
+.c3 .circle {
+  stroke: #ea9f69;
+}
+.c4 .circle {
+  stroke: #c6d147;
 }
 
 .budget_section .budget .right_box .percentage {

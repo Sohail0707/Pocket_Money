@@ -9,7 +9,7 @@
       "1": {
         "name": "Fast food",
         "logo_alphabet": "F",
-        "monthly_amount": 4600
+        "monthly_amount": 1200
       },
 
       "2": {
@@ -21,14 +21,21 @@
       "3": {
         "name": "Shopping",
         "logo_alphabet": "S",
-        "monthly_amount": 4600
+        "monthly_amount": 4000
+      },
+
+      "4": {
+        "name": "Cosmetics",
+        "logo_alphabet": "C",
+        "monthly_amount": 1500
       }
     },
 
     "spend": {
       "Grocery": 2300,
-      "fast food": 1450,
-      "Shopping": 1600
+      "Fast food": 1050,
+      "Shopping": 1600,
+      "Cosmetics": 1500
     },
 
     "earn": {

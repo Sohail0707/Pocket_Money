@@ -82,8 +82,8 @@ app.get("/dashboard", (req, res) => {
 
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
-                budget = budget + replaceTemplate(dashboard_budget, dataObj, i);
-                console.log(dataObj[0].budget[i.toString()].name);
+                budget =
+                  budget + replaceTemplate(dashboard_budget, dataObj, i, 1);
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
 
