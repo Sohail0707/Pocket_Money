@@ -1,0 +1,40 @@
+[
+  {
+    "id": 786315,
+    "firstName": "sohail",
+    "lastName": "rana",
+    "password": "786211",
+
+    "budget": {
+      "1": {
+        "name": "Fast food",
+        "logo_alphabet": "F",
+        "monthly_amount": 4600
+      },
+
+      "2": {
+        "name": "Grocery",
+        "logo_alphabet": "G",
+        "monthly_amount": 4600
+      },
+
+      "3": {
+        "name": "Shopping",
+        "logo_alphabet": "S",
+        "monthly_amount": 4600
+      }
+    },
+
+    "spend": {
+      "Grocery": 2300,
+      "fast food": 1450,
+      "Shopping": 1600
+    },
+
+    "earn": {
+      "Salary": 2300,
+      "Rent": 1450,
+      "Real estate": 1600
+    }
+  }
+]

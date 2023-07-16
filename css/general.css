@@ -96,6 +96,13 @@ body {
   text-transform: capitalize;
 }
 
+.h6_medium {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
 /* /////////// Different shadows /////////// */
 /* /////////////////////////////////////////// */
 .btn_shadow {
