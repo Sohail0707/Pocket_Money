@@ -4,6 +4,10 @@
   --color_dark: #382d59;
   --color_light: #f0ebff;
   --color_white: #fbfafb;
+  --color_lite_green: #c4f7c7;
+  --color_green: #13b937;
+  --color_lite_red: #f9e4e4;
+  --color_red: #ee5d5d;
 }
 
 * {
@@ -131,4 +135,10 @@ body {
   height: 2.2rem;
   width: 2.2rem;
   fill: currentColor;
+}
+
+i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -29,42 +29,60 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// ////////////// Main container margin top
-const mainContainer = document.querySelector("#dashboard .main_container");
-const topContainer = document.querySelector("#dashboard .top_container");
-mainContainer.style.marginTop = `${(topContainer.offsetHeight - 20) / 10}rem`;
+// ////////////////////////////////////////////////////////////////////////
+// This will only work when in dashboard //////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////
 
-// ///////// Dashboard indicator /////////
-// //////////////////////////////////////////////////////////
-const indicator = document.querySelector("#dashboard .indicator");
-const btnIncome = document.querySelector("#dashboard .btn_income");
-const btnExpense = document.querySelector("#dashboard .btn_expense");
-const totalBox = document.querySelector("#dashboard .main_container .total");
+if (pathName === "/dashboard") {
+  // ////// Main container margin top ///////
+  const mainContainer = document.querySelector("#dashboard .main_container");
+  const topContainer = document.querySelector("#dashboard .top_container");
+  mainContainer.style.marginTop = `${(topContainer.offsetHeight - 20) / 10}rem`;
 
-btnIncome.addEventListener("click", function () {
-  indicator.style.transform = "translateX(0)";
-  btnIncome.style.color = `var(--color_light)`;
-  btnExpense.style.color = `var(--color_dark)`;
-  totalBox.classList.contains("expense")
-    ? totalBox.classList.remove("expense")
-    : "";
-  totalBox.classList.contains("income") ? "" : totalBox.classList.add("income");
-});
+  // ///////// Dashboard indicator /////////
+  const indicator = document.querySelector("#dashboard .indicator");
+  const btnIncome = document.querySelector("#dashboard .btn_income");
+  const btnExpense = document.querySelector("#dashboard .btn_expense");
+  const totalBox = document.querySelector("#dashboard .main_container .total");
 
-btnExpense.addEventListener("click", function () {
-  indicator.style.transform = "translateX(100%)";
-  btnIncome.style.color = `var(--color_dark)`;
-  btnExpense.style.color = `var(--color_light)`;
-  totalBox.classList.contains("income")
-    ? totalBox.classList.remove("income")
-    : "";
-  totalBox.classList.contains("expense")
-    ? ""
-    : totalBox.classList.add("expense");
-});
+  btnIncome.addEventListener("click", function () {
+    indicator.style.transform = "translateX(0)";
+    btnIncome.style.color = `var(--color_light)`;
+    btnExpense.style.color = `var(--color_dark)`;
+    totalBox.classList.contains("expense")
+      ? totalBox.classList.remove("expense")
+      : "";
+    totalBox.classList.contains("income")
+      ? ""
+      : totalBox.classList.add("income");
+  });
 
-// ///////// Setting the colors of dashboard budget /////////
-// //////////////////////////////////////////////////////////
+  btnExpense.addEventListener("click", function () {
+    indicator.style.transform = "translateX(100%)";
+    btnIncome.style.color = `var(--color_dark)`;
+    btnExpense.style.color = `var(--color_light)`;
+    totalBox.classList.contains("income")
+      ? totalBox.classList.remove("income")
+      : "";
+    totalBox.classList.contains("expense")
+      ? ""
+      : totalBox.classList.add("expense");
+  });
+
+  const budgetPercentage = document.querySelectorAll(".budget .percentage");
+  const budgetProgress = document.querySelectorAll(".budget .circle");
+
+  window.addEventListener("load", function () {
+    for (let i = 0; i <= budgetPercentage.length; i++) {
+      let percent =
+        (27.02 * (100 - parseInt(budgetPercentage[i].innerHTML, 10))) / 100;
+      budgetProgress[i].style.strokeDashoffset = `${percent}rem`;
+    }
+  });
+}
+
+// ////////////////// Color of budget /////////////////////
+// ////////////////////////////////////////////////////////
 const colorObj = {
   c1: "#EA6988",
   c2: "#69B4EA",
@@ -96,15 +114,4 @@ logoAlphabet.forEach((alphabet) => {
       alphabet.parentElement.parentElement.classList.add("c4");
     }
   });
-});
-
-const budgetPercentage = document.querySelectorAll(".budget .percentage");
-const budgetProgress = document.querySelectorAll(".budget .circle");
-
-window.addEventListener("load", function () {
-  for (let i = 0; i <= budgetPercentage.length; i++) {
-    let percent =
-      (27.02 * (100 - parseInt(budgetPercentage[i].innerHTML, 10))) / 100;
-    budgetProgress[i].style.strokeDashoffset = `${percent}rem`;
-  }
 });
