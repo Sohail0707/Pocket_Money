@@ -116,3 +116,19 @@ body {
 .text_shadow {
   text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
 }
+
+/* /////////////// Icon Styling ////////////// */
+/* /////////////////////////////////////////// */
+.icon {
+  height: 2.2rem;
+  width: 2.2rem;
+  fill: none;
+  stroke-width: 0.15rem;
+  stroke: currentColor;
+}
+
+.icon_solid {
+  height: 2.2rem;
+  width: 2.2rem;
+  fill: currentColor;
+}

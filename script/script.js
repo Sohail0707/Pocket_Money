@@ -1,33 +1,31 @@
 // ////////// making the navigation working
 const pathName = window.location.pathname;
 const navBtn = document.querySelectorAll("#navigation .link");
-const navIconSolid = document.querySelectorAll("#navigation .icon_solid");
-const navIconOutline = document.querySelectorAll("#navigation .icon_outline");
 const navText = document.querySelectorAll("#navigation .txt");
+const navIcon = document.querySelectorAll("#navigation i");
 
-window.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", function () {
   if (pathName === "/dashboard") {
-    navIconOutline[0].style.display = `none`;
-    navIconSolid[0].style.display = `block`;
+    navBtn[0].style.color = `var(--color_primary)`;
     navText[0].style.color = `var(--color_primary)`;
+    navIcon[0].setAttribute("name", "dashboard_solid");
   }
 
   if (pathName === "/budget") {
-    navIconOutline[1].style.display = `none`;
-    navIconSolid[1].style.display = `block`;
+    navBtn[1].style.color = `var(--color_primary)`;
     navText[1].style.color = `var(--color_primary)`;
+    navIcon[1].setAttribute("name", "budget_solid");
   }
 
   if (pathName === "/transaction") {
-    navIconOutline[2].style.display = `none`;
-    navIconSolid[2].style.display = `block`;
+    navBtn[2].style.color = `var(--color_primary)`;
     navText[2].style.color = `var(--color_primary)`;
   }
 
   if (pathName === "/profile") {
-    navIconOutline[3].style.display = `none`;
-    navIconSolid[3].style.display = `block`;
+    navBtn[3].style.color = `var(--color_primary)`;
     navText[3].style.color = `var(--color_primary)`;
+    navIcon[3].setAttribute("name", "profile_solid");
   }
 });
 
@@ -41,25 +39,28 @@ mainContainer.style.marginTop = `${(topContainer.offsetHeight - 20) / 10}rem`;
 const indicator = document.querySelector("#dashboard .indicator");
 const btnIncome = document.querySelector("#dashboard .btn_income");
 const btnExpense = document.querySelector("#dashboard .btn_expense");
-const incomeIcon = document.querySelector("#dashboard .btn_income .icon");
-const expenseIcon = document.querySelector("#dashboard .btn_expense .icon");
+const totalBox = document.querySelector("#dashboard .main_container .total");
 
 btnIncome.addEventListener("click", function () {
   indicator.style.transform = "translateX(0)";
   btnIncome.style.color = `var(--color_light)`;
-  incomeIcon.style.fill = `var(--color_light)`;
-
   btnExpense.style.color = `var(--color_dark)`;
-  expenseIcon.style.fill = `var(--color_dark)`;
+  totalBox.classList.contains("expense")
+    ? totalBox.classList.remove("expense")
+    : "";
+  totalBox.classList.contains("income") ? "" : totalBox.classList.add("income");
 });
 
 btnExpense.addEventListener("click", function () {
   indicator.style.transform = "translateX(100%)";
-  btnExpense.style.color = `var(--color_light)`;
-  expenseIcon.style.fill = `var(--color_light)`;
-
   btnIncome.style.color = `var(--color_dark)`;
-  incomeIcon.style.fill = `var(--color_dark)`;
+  btnExpense.style.color = `var(--color_light)`;
+  totalBox.classList.contains("income")
+    ? totalBox.classList.remove("income")
+    : "";
+  totalBox.classList.contains("expense")
+    ? ""
+    : totalBox.classList.add("expense");
 });
 
 // ///////// Setting the colors of dashboard budget /////////

@@ -21,27 +21,23 @@
 }
 
 #navigation .link:is(:link, :visited) {
+  color: var(--color_dark);
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
 }
 
-#navigation .icon {
-  width: 2.2rem;
-  height: 2.2rem;
-  color: var(--color_dark);
-}
-
+#navigation .icon,
 #navigation .icon_solid {
-  display: none;
-  color: var(--color_primary);
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 #navigation .txt {
   text-transform: capitalize;
   font-size: 1rem;
   line-height: 1;
-  color: #808080;
+  color: #555;
 }
