@@ -84,6 +84,8 @@ app.get("/dashboard", (req, res) => {
               let result = body.replace(/{%PAGE%}/, application_page);
               result = result.replace(/{%PAGE%}/, dashboard);
 
+              // This section is for replace placeholde with value from database
+              // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
                 budget =
@@ -124,9 +126,10 @@ app.get("/budget", (req, res) => {
               let result = body.replace(/{%PAGE%}/, application_page);
               result = result.replace(/{%PAGE%}/, budget_page);
 
+              // This section is for replace placeholde with value from database
+              // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
-                console.log(template_budget);
                 budget =
                   budget + replaceTemplate(template_budget, dataObj, i, 2);
               }
@@ -136,6 +139,52 @@ app.get("/budget", (req, res) => {
                 /{%CSS%}/,
                 `<link rel="stylesheet" href="navigation.css" />
                  <link rel="stylesheet" href="budget.css" />`
+              );
+              res.send(result);
+            }
+          );
+        }
+      );
+    }
+  );
+});
+
+//Route for transaction
+// ///////////////////////////////////////////////////////////////
+app.get("/transaction", (req, res) => {
+  fs.readFile(
+    `${__dirname}/pages/application_page.ejs`,
+    "utf-8",
+    (err, application_page) => {
+      fs.readFile(
+        `${__dirname}/pages/transaction.ejs`,
+        "utf-8",
+        (err, transaction_page) => {
+          fs.readFile(
+            `${__dirname}/templates/template_transaction_item.ejs`,
+            "utf-8",
+            (err, template_transaction_item) => {
+              let result = body.replace(/{%PAGE%}/, application_page);
+              result = result.replace(/{%PAGE%}/, transaction_page);
+
+              // This section is for replace placeholde with value from database
+              // Join multiple template into one string
+              let transaction_list = "";
+              for (
+                let i = 1;
+                i <= Object.keys(dataObj[0].transaction).length;
+                i++
+              ) {
+                transaction_list =
+                  transaction_list +
+                  replaceTemplate(template_transaction_item, dataObj, i, 3);
+              }
+
+              result = result.replace(/{%TRANSACTION_LIST%}/, transaction_list);
+              result = result.replace(
+                /{%CSS%}/,
+                `<link rel="stylesheet" href="navigation.css" />
+                 <link rel="stylesheet" href="transaction.css" />`
               );
               res.send(result);
             }

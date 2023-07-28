@@ -1,0 +1,146 @@
+#transaction {
+  background: var(--color_light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  padding: 3.2rem 1.6rem;
+  width: 100%;
+}
+
+#transaction .filter {
+  width: 100%;
+  display: flex;
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+  background: var(--color_white);
+  gap: 1.6rem;
+}
+
+#transaction .filter .btnFilter {
+  width: 100%;
+  padding: 1.4rem 2rem;
+  border: none;
+  background: var(--color_primary);
+  color: var(--color_light);
+  border-radius: 1.2rem;
+}
+
+/* ----------------------------------------- */
+#transaction .duration {
+  width: 100%;
+  position: relative;
+  color: var(--color_dark);
+}
+
+#transaction .duration input[type="text"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.9rem 1.6rem;
+  display: flex;
+  color: var(--color_primary);
+}
+
+#transaction .duration div {
+  border: 0.2rem solid var(--color_primary);
+  /* box-shadow: 0 0 0 0.2rem inset var(--color_primary); */
+  border-radius: 1.2rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#transaction .duration ul {
+  width: 100%;
+  background: var(--color_white);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+#transaction .duration ul li {
+  padding: 1.4rem 2rem;
+}
+
+/* ----------------------------------------- */
+.list_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list_section .item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+  background: var(--color_white);
+}
+
+.list_section .top_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list_section .top_box .value_box {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list_section .btn {
+  border: none;
+  padding: 0.8rem;
+  border-radius: 1.2rem;
+}
+
+.list_section .btn .icon_solid,
+.list_section .btn .icon {
+  stroke-width: 3;
+  height: 1.6rem;
+  width: 1.6rem;
+  filter: drop-shadow(0px 1.5px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* /////////////////////////////////////// */
+/* Edit Button */
+.list_section .btnEdit {
+  background: var(--color_light);
+  color: var(--color_primary);
+  display: none;
+}
+/* Submit Button */
+.list_section .btnSubmit {
+  background: var(--color_lite_green);
+  color: var(--color_green);
+  display: none;
+}
+/* Close Button */
+.list_section .btnClose {
+  background: var(--color_lite_red);
+  color: var(--color_red);
+  display: none;
+}
+
+.list_section .top_box .txt {
+  color: var(--color_dark);
+}
+
+.spend {
+  color: var(--color_red);
+}
+.earn {
+  color: var(--color_green);
+}
+
+.list_section .bottom_box {
+  color: var(--color_dark);
+  display: none;
+}

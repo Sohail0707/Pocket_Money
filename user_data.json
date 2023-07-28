@@ -42,6 +42,56 @@
       "Salary": 2300,
       "Rent": 1450,
       "Real estate": 1600
+    },
+
+    "transaction": {
+      "1": {
+        "type": "earn",
+        "mode": "online",
+        "amount": "2100",
+        "category": "Salary",
+        "comment": "This is a message releted to this transaction"
+      },
+
+      "2": {
+        "type": "spend",
+        "mode": "cash",
+        "amount": "1500",
+        "category": "Grocery",
+        "comment": "This is a message releted to this transaction"
+      },
+
+      "3": {
+        "type": "spend",
+        "mode": "online",
+        "amount": "3500",
+        "category": "Shopping",
+        "comment": "This is a message releted to this transaction"
+      },
+
+      "4": {
+        "type": "spend",
+        "mode": "cash",
+        "amount": "1500",
+        "category": "Grocery",
+        "comment": "This is a message releted to this transaction"
+      },
+
+      "5": {
+        "type": "earn",
+        "mode": "online",
+        "amount": "2100",
+        "category": "Salary",
+        "comment": "This is a message releted to this transaction"
+      },
+
+      "6": {
+        "type": "spend",
+        "mode": "cash",
+        "amount": "1500",
+        "category": "Grocery",
+        "comment": "This is a message releted to this transaction"
+      }
     }
   }
 ]

@@ -81,37 +81,49 @@ if (pathName === "/dashboard") {
   });
 }
 
-// ////////////////// Color of budget /////////////////////
-// ////////////////////////////////////////////////////////
-const colorObj = {
-  c1: "#EA6988",
-  c2: "#69B4EA",
-  c3: "#EA9F69",
-  c4: "#C6D147",
-};
-const alphabetSet1 = /[a-f]/i;
-const alphabetSet2 = /[g-l]/i;
-const alphabetSet3 = /[m-r]/i;
-const alphabetSet4 = /[s-z]/i;
+// ////////////////////////////////////////////////////////////////////////
+// This will only work when in budget /////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////
+if (pathName === "/budget") {
+  // ////////////////// Color of budget /////////////////////
+  // ////////////////////////////////////////////////////////
+  const colorObj = {
+    c1: "#EA6988",
+    c2: "#69B4EA",
+    c3: "#EA9F69",
+    c4: "#C6D147",
+  };
+  const alphabetSet1 = /[a-f]/i;
+  const alphabetSet2 = /[g-l]/i;
+  const alphabetSet3 = /[m-r]/i;
+  const alphabetSet4 = /[s-z]/i;
 
-const logoAlphabet = document.querySelectorAll(".logo_alphabet");
-logoAlphabet.forEach((alphabet) => {
-  window.addEventListener("load", function () {
-    if (alphabetSet1.test(alphabet.innerHTML)) {
-      alphabet.style.background = colorObj.c1;
-      alphabet.parentElement.parentElement.classList.add("c1");
-    }
-    if (alphabetSet2.test(alphabet.innerHTML)) {
-      alphabet.style.background = colorObj.c2;
-      alphabet.parentElement.parentElement.classList.add("c2");
-    }
-    if (alphabetSet3.test(alphabet.innerHTML)) {
-      alphabet.style.background = colorObj.c3;
-      alphabet.parentElement.parentElement.classList.add("c3");
-    }
-    if (alphabetSet4.test(alphabet.innerHTML)) {
-      alphabet.style.background = colorObj.c4;
-      alphabet.parentElement.parentElement.classList.add("c4");
-    }
+  const logoAlphabet = document.querySelectorAll(".logo_alphabet");
+  logoAlphabet.forEach((alphabet) => {
+    window.addEventListener("load", function () {
+      if (alphabetSet1.test(alphabet.innerHTML)) {
+        alphabet.style.background = colorObj.c1;
+        alphabet.parentElement.parentElement.classList.add("c1");
+      }
+      if (alphabetSet2.test(alphabet.innerHTML)) {
+        alphabet.style.background = colorObj.c2;
+        alphabet.parentElement.parentElement.classList.add("c2");
+      }
+      if (alphabetSet3.test(alphabet.innerHTML)) {
+        alphabet.style.background = colorObj.c3;
+        alphabet.parentElement.parentElement.classList.add("c3");
+      }
+      if (alphabetSet4.test(alphabet.innerHTML)) {
+        alphabet.style.background = colorObj.c4;
+        alphabet.parentElement.parentElement.classList.add("c4");
+      }
+    });
   });
-});
+}
+
+// ////////////////////////////////////////////////////////////////////////
+// This will only work when in transaction ////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////
+if (pathName === "/transaction") {
+  const transactionItem = 
+}
