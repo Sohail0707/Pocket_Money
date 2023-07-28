@@ -88,9 +88,12 @@ app.get("/dashboard", (req, res) => {
               // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
-                budget =
-                  budget +
-                  replaceTemplate(template_budget_status, dataObj, i, 1);
+                budget += replaceTemplate(
+                  template_budget_status,
+                  dataObj,
+                  i,
+                  1
+                );
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
 
@@ -130,8 +133,7 @@ app.get("/budget", (req, res) => {
               // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
-                budget =
-                  budget + replaceTemplate(template_budget, dataObj, i, 2);
+                budget += replaceTemplate(template_budget, dataObj, i, 2);
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
 
@@ -175,9 +177,12 @@ app.get("/transaction", (req, res) => {
                 i <= Object.keys(dataObj[0].transaction).length;
                 i++
               ) {
-                transaction_list =
-                  transaction_list +
-                  replaceTemplate(template_transaction_item, dataObj, i, 3);
+                transaction_list += replaceTemplate(
+                  template_transaction_item,
+                  dataObj,
+                  i,
+                  3
+                );
               }
 
               result = result.replace(/{%TRANSACTION_LIST%}/, transaction_list);
