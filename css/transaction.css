@@ -129,6 +129,30 @@
   display: none;
 }
 
+/* ////////////////////////////////// */
+/* ////////////////////////////////// */
+
+.list_section .open .btnEdit {
+  display: flex;
+}
+.list_section .open .comment {
+  display: block;
+}
+
+.list_section .edit .btnEdit {
+  display: none;
+}
+
+.list_section .edit .btnSubmit,
+.list_section .edit .btnClose {
+  display: flex;
+}
+
+.list_section .close .btnSubmit,
+.list_section .close .btnClose {
+  display: none;
+}
+
 .list_section .top_box .txt {
   color: var(--color_dark);
 }

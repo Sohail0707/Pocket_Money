@@ -119,6 +119,43 @@ logoAlphabet.forEach((alphabet) => {
 // ////////////////////////////////////////////////////////////////////////
 // This will only work when in transaction ////////////////////////////////
 // ////////////////////////////////////////////////////////////////////////
-// if (pathName === "/transaction") {
-//   const transactionItem =
-// }
+if (pathName === "/transaction") {
+  const transactionItem = document.querySelectorAll(".list_section .item");
+
+  const trEditBtn = document.querySelectorAll(".list_section .btnEdit");
+  const trSubmitBtn = document.querySelectorAll(".list_section .btnSubmit");
+  const trCloseBtn = document.querySelectorAll(".list_section .btnClose");
+  const trComment = document.querySelectorAll(".list_section .comment");
+
+  transactionItem.forEach((item) => {
+    item.addEventListener("click", function () {
+      item.classList.remove("close");
+      item.classList.remove("edit");
+      item.classList.contains("open") ? "" : item.classList.add("open");
+      console.log("clicked");
+    });
+  });
+
+  trEditBtn.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      for (let i = 0; i <= trEditBtn.length; i++) {
+        if (btn == trEditBtn[i]) {
+          transactionItem[i].classList.add("edit");
+        }
+      }
+    });
+  });
+
+  trCloseBtn.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      for (let i = 0; i <= trCloseBtn.length; i++) {
+        if (btn == trCloseBtn[i]) {
+          transactionItem[i].classList.remove("open");
+          transactionItem[i].classList.add("close");
+        }
+      }
+    });
+  });
+}
