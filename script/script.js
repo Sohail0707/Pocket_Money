@@ -259,7 +259,7 @@ if (pathName === "/transaction") {
       const fontSizeStringValue = styles.fontSize;
       const fontSizeValue = parseFloat(fontSizeStringValue, 10);
       const letterNum = field.value.length;
-      field.style.width = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
+      field.style.maxWidth = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
     });
   });
 
@@ -269,7 +269,7 @@ if (pathName === "/transaction") {
       const fontSizeStringValue = styles.fontSize;
       const fontSizeValue = parseFloat(fontSizeStringValue, 10);
       const letterNum = field.value.length;
-      field.style.width = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
+      field.style.maxWidth = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
     });
   });
 }
