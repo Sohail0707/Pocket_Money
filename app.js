@@ -114,14 +114,17 @@ app.get("/dashboard", (req, res) => {
 //Route for budget
 // ///////////////////////////////////////////////////////////////
 app.get("/budget", (req, res) => {
+  // Reading the aplication page
   fs.readFile(
     `${__dirname}/pages/application_page.ejs`,
     "utf-8",
     (err, application_page) => {
+      // Reading the budget page
       fs.readFile(
         `${__dirname}/pages/budget.ejs`,
         "utf-8",
         (err, budget_page) => {
+          // Reading template budget
           fs.readFile(
             `${__dirname}/templates/template_budget.ejs`,
             "utf-8",
@@ -137,6 +140,7 @@ app.get("/budget", (req, res) => {
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
 
+              // Attaching the related css files
               result = result.replace(
                 /{%CSS%}/,
                 `<link rel="stylesheet" href="navigation.css" />
@@ -154,18 +158,22 @@ app.get("/budget", (req, res) => {
 //Route for transaction
 // ///////////////////////////////////////////////////////////////
 app.get("/transaction", (req, res) => {
+  // reading application page
   fs.readFile(
     `${__dirname}/pages/application_page.ejs`,
     "utf-8",
     (err, application_page) => {
+      // Reading transaction page
       fs.readFile(
         `${__dirname}/pages/transaction.ejs`,
         "utf-8",
         (err, transaction_page) => {
+          // Reading transaction item template
           fs.readFile(
             `${__dirname}/templates/template_transaction_item.ejs`,
             "utf-8",
             (err, template_transaction_item) => {
+              // Reading the date tag in the transaction saction
               fs.readFile(
                 `${__dirname}/templates/date_tag.ejs`,
                 "utf-8",
