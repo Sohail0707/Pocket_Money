@@ -2,13 +2,14 @@
 /* /////////////////// navigation /////////////////// */
 /* ////////////////////////////////////////////////// */
 #navigation {
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
-  left: 0;
+  /* position: fixed; */
+  /* z-index: 5; */
+  /* bottom: 0; */
+  /* left: 0; */
   display: flex;
   padding: 1.4rem;
   width: 100%;
+  height: fit-content;
   background: #fff;
 }
 

@@ -1,95 +1,106 @@
 <main id="dashboard">
-  <div class="top_container">
-    <div class="top">
-      <h5 class="txt h5_medium">your wealth</h5>
-      <h1 class="wealth h1_semi text_shadow">$ 2457700.00</h1>
+  <div class="dashboard_container">
+    <div class="top_container">
+      <div class="top">
+        <h5 class="txt h5_medium">your wealth</h5>
+        <h1 class="wealth h1_semi text_shadow">$ 2457700.00</h1>
+      </div>
+      <div class="bottom">
+        <div class="left component_shadow">
+          <h5 class="mode h5_medium">cash</h5>
+          <h4 class="amount h4_medium">$ 567800.00</h4>
+        </div>
+        <div class="right component_shadow">
+          <h5 class="mode h5_medium">bank</h5>
+          <h4 class="amount h4_medium">$ 567800.00</h4>
+        </div>
+      </div>
     </div>
-    <div class="bottom">
-      <div class="left component_shadow">
-        <h5 class="mode h5_medium">cash</h5>
-        <h4 class="amount h4_medium">$ 567800.00</h4>
-      </div>
-      <div class="right component_shadow">
-        <h5 class="mode h5_medium">bank</h5>
-        <h4 class="amount h4_medium">$ 567800.00</h4>
-      </div>
-    </div>
-  </div>
 
-  <div class="main_container">
-    <section class="income_expense_section">
-      <div class="income_expense component_shadow">
-        <div class="top">
-          <span class="indicator"></span>
-          <button class="btn btn_income">
-            <p class="h5_semi">income</p>
-            <i name="arrow_outline"></i>
-          </button>
-
-          <button class="btn btn_expense">
-            <p class="h5_semi">expense</p>
-            <i name="arrow_outline"></i>
-          </button>
-        </div>
-
-        <div class="bottom total">
-          <h3 class="h3_medium">$ 4328000.00</h3>
-          <i name="arrow_outline"></i>
-        </div>
-      </div>
-
-      <!-- ///////////////////////////////////////////////////////////// -->
-      <div class="online_container component_shadow">
-        <div class="left">
-          <i name="qr_outline"></i>
-          <h4 class="txt h4_semi">online</h4>
-        </div>
-        <h4 class="amount h4_medium">$ 4328000.00</h4>
-      </div>
-
-      <div class="cash_container component_shadow">
-        <div class="left">
-          <i name="cash_outline"></i>
-          <h4 class="txt h4_semi">cash</h4>
-        </div>
-        <h4 class="amount h4_medium">$ 4328000.00</h4>
-      </div>
-
-      <div class="bank_container component_shadow">
-        <div class="left">
-          <i name="bank_outline"></i>
-          <h4 class="txt h4_semi">bank</h4>
-        </div>
-        <h4 class="amount h4_medium">$ 4328000.00</h4>
-      </div>
-    </section>
-
-    <!-- //////// Budget Section /////////////////// -->
-    <!-- //////////////////////////////////////////// -->
-    <section class="budget_section">
-      <div class="budget_box component_shadow">
-        <div class="left">
+    <div class="main_container">
+      <section class="income_expense_section">
+        <div class="income_expense component_shadow">
           <div class="top">
-            <i name="budget_outline"></i>
-            <h3 class="txt h3_semi">Your budget</h3>
+            <span class="indicator"></span>
+            <button class="btn btn_income">
+              <p class="h5_semi">income</p>
+              <i name="arrow_outline"></i>
+            </button>
+
+            <button class="btn btn_expense">
+              <p class="h5_semi">expense</p>
+              <i name="arrow_outline"></i>
+            </button>
           </div>
-          <h4 class="amount h4_semi text_shadow">$3700 / $24030</h4>
+
+          <div class="bottom total">
+            <h3 class="h3_medium">$ 4328000.00</h3>
+            <i name="arrow_outline"></i>
+          </div>
         </div>
 
-        <div class="right">
-          <svg width="100" height="100" viewBox="0 0 100 100" class="ellipse">
-            <circle
-              r="45"
-              cx="50"
-              cy="50"
-              fill="transparent"
-              stroke-linecap="round"
-              class="circle"></circle>
-          </svg>
-          <h3 class="percentage h3_semi text_shadow">80%</h3>
+        <!-- ///////////// Online, Bank & Cash section ///////////// -->
+        <!-- /////////////////////////////////////////////////////// -->
+        <div class="online_container component_shadow">
+          <div class="left">
+            <i name="qr_outline"></i>
+            <h4 class="txt h4_semi">online</h4>
+          </div>
+          <h4 class="amount h4_medium">$ 4328000.00</h4>
         </div>
-      </div>
-      {%BUDGET_LIST%}
-    </section>
+
+        <div class="cash_container component_shadow">
+          <div class="left">
+            <i name="cash_outline"></i>
+            <h4 class="txt h4_semi">cash</h4>
+          </div>
+          <h4 class="amount h4_medium">$ 4328000.00</h4>
+        </div>
+
+        <div class="bank_container component_shadow">
+          <div class="left">
+            <i name="bank_outline"></i>
+            <h4 class="txt h4_semi">bank</h4>
+          </div>
+          <h4 class="amount h4_medium">$ 4328000.00</h4>
+        </div>
+      </section>
+
+      <!-- ///////////// Budget Section /////////////// -->
+      <!-- //////////////////////////////////////////// -->
+      <section class="budget_section">
+        <div class="budget_box component_shadow">
+          <div class="left">
+            <div class="top">
+              <i name="budget_outline"></i>
+              <h3 class="txt h3_semi">Your budget</h3>
+            </div>
+            <h4 class="amount h4_semi text_shadow">$3700 / $24030</h4>
+          </div>
+
+          <div class="right">
+            <svg width="100" height="100" viewBox="0 0 100 100" class="ellipse">
+              <circle
+                r="45"
+                cx="50"
+                cy="50"
+                fill="transparent"
+                stroke-linecap="round"
+                class="circle"></circle>
+            </svg>
+            <h3 class="percentage h3_semi text_shadow">80%</h3>
+          </div>
+        </div>
+        {%BUDGET_LIST%}
+      </section>
+    </div>
   </div>
+  <!-- ////////////////// Add transaction section /////////////////// -->
+  <!-- ////////////////////////////////////////////////////////////// -->
+  <button class="trBtn addBtn"><i name="add_outline"></i></button>
+  <button class="trBtn earnBtn"><i name="arrow_outline"></i></button>
+  <button class="trBtn spendBtn"><i name="arrow_outline"></i></button>
+  <div class="overlay"></div>
+  <form action="" id="addTransaction"></form>
+  <!-- ////////////////////////////////////////////////////////////// -->
 </main>

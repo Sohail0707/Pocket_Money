@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // ////////////////////////////////////////////////////////////////////////
 // This will only work when in dashboard //////////////////////////////////
 // ////////////////////////////////////////////////////////////////////////
-
 if (pathName === "/dashboard") {
   // ////// Main container margin top ///////
   const mainContainer = document.querySelector("#dashboard .main_container");
@@ -78,6 +77,12 @@ if (pathName === "/dashboard") {
         (27.02 * (100 - parseInt(budgetPercentage[i].innerHTML, 10))) / 100;
       budgetProgress[i].style.strokeDashoffset = `${percent}rem`;
     }
+  });
+
+  // Button animation
+  const addBtn = document.querySelector("#dashboard .addBtn");
+  addBtn.addEventListener("click", function () {
+    addBtn.parentElement.classList.toggle("open");
   });
 }
 
