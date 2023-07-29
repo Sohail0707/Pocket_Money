@@ -49,17 +49,16 @@ module.exports = (temp, dataObj, i, parameter) => {
       dataObj[0].transaction[i].type
     );
 
+    output = output.replace(
+      /{%TRANSACTION_AMOUNT%}/,
+      dataObj[0].transaction[i].amount
+    );
+
     // To place a -ve or +ve sign before amount
     if (dataObj[0].transaction[i].type === "spend") {
-      output = output.replace(
-        /{%TRANSACTION_AMOUNT%}/g,
-        `-${dataObj[0].transaction[i].amount}`
-      );
+      output = output.replace(/{%SIGN%}/, `-`);
     } else if (dataObj[0].transaction[i].type === "earn") {
-      output = output.replace(
-        /{%TRANSACTION_AMOUNT%}/g,
-        `+${dataObj[0].transaction[i].amount}`
-      );
+      output = output.replace(/{%SIGN%}/, `+`);
     }
 
     output = output.replace(

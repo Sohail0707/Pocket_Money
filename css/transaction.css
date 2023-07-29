@@ -124,7 +124,7 @@
 .list_section .top_box #transaction_amount {
   outline: 0;
   border: none;
-  display: inline-block;
+  display: inline;
   max-width: 6rem;
   height: 2rem;
   background: transparent;
@@ -133,7 +133,7 @@
 .list_section .top_box #category_name {
   outline: 0;
   border: none;
-  display: inline-block;
+  display: inline;
   max-width: 8rem;
   height: 2rem;
   background: transparent;
@@ -210,10 +210,12 @@
   color: var(--color_dark);
 }
 
-.spend {
+.spend,
+.spend input {
   color: var(--color_red);
 }
-.earn {
+.earn,
+.earn input {
   color: var(--color_green);
 }
 

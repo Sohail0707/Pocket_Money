@@ -195,10 +195,8 @@ if (pathName === "/transaction") {
 
   transactionItem.forEach((item) => {
     item.addEventListener("click", function () {
-      item.classList.remove("close");
-      item.classList.remove("edit");
+      item.classList.contains("close") ? item.classList.remove("close") : "";
       item.classList.contains("open") ? "" : item.classList.add("open");
-      console.log("clicked");
     });
   });
 
@@ -223,6 +221,10 @@ if (pathName === "/transaction") {
       for (let i = 0; i <= trCloseBtn.length; i++) {
         if (btn == trCloseBtn[i]) {
           transactionItem[i].classList.remove("open");
+          transactionItem[i].classList.contains("edit")
+            ? transactionItem[i].classList.remove("edit")
+            : "";
+
           transactionItem[i].classList.add("close");
           trCategory[i].setAttribute("disabled", "true");
           trAmount[i].setAttribute("disabled", "true");
@@ -239,6 +241,7 @@ if (pathName === "/transaction") {
       for (let i = 0; i <= trCloseBtn.length; i++) {
         if (btn == trSubmitBtn[i]) {
           transactionItem[i].classList.remove("open");
+
           transactionItem[i].classList.add("close");
           trCategory[i].setAttribute("disabled", "true");
           trAmount[i].setAttribute("disabled", "true");

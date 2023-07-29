@@ -10,13 +10,16 @@
       disabled />
 
     <div class="value_box">
-      <input
-        type="text"
-        class="h4_medium {%TRANSACTION_TYPE%}"
-        name=""
-        id="transaction_amount"
-        value="{%TRANSACTION_AMOUNT%}"
-        disabled />
+      <div class="{%TRANSACTION_TYPE%} transaction_amount_container">
+        <span class="h4_medium">{%SIGN%}</span>
+        <input
+          type="text"
+          class="h4_medium"
+          name=""
+          id="transaction_amount"
+          value="{%TRANSACTION_AMOUNT%}"
+          disabled />
+      </div>
 
       <button class="btn btnEdit" type="button">
         <i name="pencil_solid"></i>
