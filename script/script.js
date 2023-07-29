@@ -251,4 +251,25 @@ if (pathName === "/transaction") {
       }
     });
   });
+
+  // Setting width of input field
+  window.addEventListener("load", function () {
+    trAmount.forEach((field) => {
+      const styles = window.getComputedStyle(field);
+      const fontSizeStringValue = styles.fontSize;
+      const fontSizeValue = parseFloat(fontSizeStringValue, 10);
+      const letterNum = field.value.length;
+      field.style.width = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
+    });
+  });
+
+  trAmount.forEach((field) => {
+    field.addEventListener("keyup", function () {
+      const styles = window.getComputedStyle(field);
+      const fontSizeStringValue = styles.fontSize;
+      const fontSizeValue = parseFloat(fontSizeStringValue, 10);
+      const letterNum = field.value.length;
+      field.style.width = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
+    });
+  });
 }
