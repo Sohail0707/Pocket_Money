@@ -5,31 +5,31 @@
     "lastName": "rana",
     "password": "786211",
 
-    "budget": {
-      "1": {
+    "budget": [
+      {
         "name": "Fast food",
         "logo_alphabet": "F",
         "monthly_amount": 1200
       },
 
-      "2": {
+      {
         "name": "Grocery",
         "logo_alphabet": "G",
         "monthly_amount": 4600
       },
 
-      "3": {
+      {
         "name": "Shopping",
         "logo_alphabet": "S",
         "monthly_amount": 4000
       },
 
-      "4": {
+      {
         "name": "Cosmetics",
         "logo_alphabet": "C",
         "monthly_amount": 1500
       }
-    },
+    ],
 
     "spend": {
       "Grocery": 2300,
@@ -44,8 +44,8 @@
       "Real estate": 1600
     },
 
-    "transaction": {
-      "1": {
+    "transaction": [
+      {
         "type": "earn",
         "mode": "online",
         "amount": "2100",
@@ -53,7 +53,7 @@
         "comment": "This is a message releted to this transaction"
       },
 
-      "2": {
+      {
         "type": "spend",
         "mode": "cash",
         "amount": "1500",
@@ -61,7 +61,7 @@
         "comment": "This is a message releted to this transaction"
       },
 
-      "3": {
+      {
         "type": "spend",
         "mode": "online",
         "amount": "3500",
@@ -69,7 +69,7 @@
         "comment": "This is a message releted to this transaction"
       },
 
-      "4": {
+      {
         "type": "spend",
         "mode": "cash",
         "amount": "1500",
@@ -77,7 +77,7 @@
         "comment": "This is a message releted to this transaction"
       },
 
-      "5": {
+      {
         "type": "earn",
         "mode": "online",
         "amount": "2100",
@@ -85,13 +85,13 @@
         "comment": "This is a message releted to this transaction"
       },
 
-      "6": {
+      {
         "type": "spend",
         "mode": "cash",
         "amount": "1500",
         "category": "Grocery",
         "comment": "This is a message releted to this transaction"
       }
-    }
+    ]
   }
 ]

@@ -91,7 +91,7 @@ app.get("/dashboard", (req, res) => {
                 budget += replaceTemplate(
                   template_budget_status,
                   dataObj,
-                  i,
+                  i - 1,
                   1
                 );
               }
@@ -133,7 +133,7 @@ app.get("/budget", (req, res) => {
               // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
-                budget += replaceTemplate(template_budget, dataObj, i, 2);
+                budget += replaceTemplate(template_budget, dataObj, i - 1, 2);
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
 
@@ -180,7 +180,7 @@ app.get("/transaction", (req, res) => {
                 transaction_list += replaceTemplate(
                   template_transaction_item,
                   dataObj,
-                  i,
+                  i - 1,
                   3
                 );
               }

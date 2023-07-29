@@ -65,6 +65,16 @@
   padding: 1.4rem 2rem;
 }
 
+/* Editing date tag //////////////////////// */
+#transaction .date_tag {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 1.2rem 0 0;
+  width: 100%;
+  color: var(--color_dark);
+}
+
 /* Editing the transaction form //////////// */
 .list_section {
   width: 100%;
