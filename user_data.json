@@ -46,6 +46,7 @@
 
     "transaction": [
       {
+        "date": "11-07-2023",
         "type": "earn",
         "mode": "online",
         "amount": "2100",
@@ -54,6 +55,7 @@
       },
 
       {
+        "date": "11-07-2023",
         "type": "spend",
         "mode": "cash",
         "amount": "1500",
@@ -62,14 +64,16 @@
       },
 
       {
+        "date": "11-07-2023",
         "type": "spend",
         "mode": "online",
-        "amount": "3500",
+        "amount": "0000",
         "category": "Shopping",
         "comment": "This is a message releted to this transaction"
       },
 
       {
+        "date": "12-07-2023",
         "type": "spend",
         "mode": "cash",
         "amount": "1500",
@@ -78,6 +82,7 @@
       },
 
       {
+        "date": "12-07-2023",
         "type": "earn",
         "mode": "online",
         "amount": "2100",
@@ -86,6 +91,7 @@
       },
 
       {
+        "date": "13-07-2023",
         "type": "spend",
         "mode": "cash",
         "amount": "1500",

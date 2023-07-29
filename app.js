@@ -87,7 +87,7 @@ app.get("/dashboard", (req, res) => {
               // This section is for replace placeholde with value from database
               // Join multiple template into one string
               let budget = "";
-              for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
+              for (let i = 1; i <= dataObj[0].budget.length; i++) {
                 budget += replaceTemplate(
                   template_budget_status,
                   dataObj,
@@ -132,7 +132,7 @@ app.get("/budget", (req, res) => {
               // This section is for replace placeholde with value from database
               // Join multiple template into one string
               let budget = "";
-              for (let i = 1; i <= Object.keys(dataObj[0].budget).length; i++) {
+              for (let i = 1; i <= dataObj[0].budget.length; i++) {
                 budget += replaceTemplate(template_budget, dataObj, i - 1, 2);
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
@@ -166,32 +166,59 @@ app.get("/transaction", (req, res) => {
             `${__dirname}/templates/template_transaction_item.ejs`,
             "utf-8",
             (err, template_transaction_item) => {
-              let result = body.replace(/{%PAGE%}/, application_page);
-              result = result.replace(/{%PAGE%}/, transaction_page);
+              fs.readFile(
+                `${__dirname}/templates/date_tag.ejs`,
+                "utf-8",
+                (err, date_tag) => {
+                  let result = body.replace(/{%PAGE%}/, application_page);
+                  result = result.replace(/{%PAGE%}/, transaction_page);
 
-              // This section is for replace placeholde with value from database
-              // Join multiple template into one string
-              let transaction_list = "";
-              for (
-                let i = 1;
-                i <= Object.keys(dataObj[0].transaction).length;
-                i++
-              ) {
-                transaction_list += replaceTemplate(
-                  template_transaction_item,
-                  dataObj,
-                  i - 1,
-                  3
-                );
-              }
+                  // Sorting the transaction data based on date
+                  dataObj[0].transaction.sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                  );
 
-              result = result.replace(/{%TRANSACTION_LIST%}/, transaction_list);
-              result = result.replace(
-                /{%CSS%}/,
-                `<link rel="stylesheet" href="navigation.css" />
+                  // This section is for replace placeholde with value from database
+                  // Join multiple template into one string
+                  let transaction_list = "";
+
+                  // This is te previous date to check for the change of date
+                  let previousDate = null;
+                  for (let i = 1; i <= dataObj[0].transaction.length; i++) {
+                    // Current date to compare with the previous one
+                    let currentDate = dataObj[0].transaction[i - 1].date;
+
+                    // Checking for the date change/////////////
+                    if (currentDate != previousDate) {
+                      transaction_list += date_tag.replace(
+                        /{%DATE%}/g,
+                        currentDate
+                      );
+
+                      console.log(currentDate);
+                      previousDate = currentDate;
+                    }
+
+                    transaction_list += replaceTemplate(
+                      template_transaction_item,
+                      dataObj,
+                      i - 1,
+                      3
+                    );
+                  }
+
+                  result = result.replace(
+                    /{%TRANSACTION_LIST%}/,
+                    transaction_list
+                  );
+                  result = result.replace(
+                    /{%CSS%}/,
+                    `<link rel="stylesheet" href="navigation.css" />
                  <link rel="stylesheet" href="transaction.css" />`
+                  );
+                  res.send(result);
+                }
               );
-              res.send(result);
             }
           );
         }
