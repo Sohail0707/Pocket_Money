@@ -408,7 +408,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(256, 256, 256, 0.5);
+  background: rgba(230, 230, 230, 0.75);
   backdrop-filter: blur(0.2rem);
   transition: all 0.2s;
   z-index: 3;
@@ -467,7 +467,7 @@
 
 /* --------------------------------- */
 .earnBtn::after {
-  content: "Earning";
+  content: "INCOME";
   position: absolute;
   left: 0;
   top: 50%;
@@ -478,7 +478,7 @@
 }
 
 .spendBtn::after {
-  content: "Spending";
+  content: "EXPENSE";
   position: absolute;
   left: 0;
   top: 50%;

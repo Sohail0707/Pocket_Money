@@ -72,11 +72,13 @@ if (pathName === "/dashboard") {
   const budgetProgress = document.querySelectorAll(".budget .circle");
 
   window.addEventListener("load", function () {
-    for (let i = 0; i <= budgetPercentage.length; i++) {
-      let percent =
-        (27.02 * (100 - parseInt(budgetPercentage[i].innerHTML, 10))) / 100;
-      budgetProgress[i].style.strokeDashoffset = `${percent}rem`;
-    }
+    budgetPercentage.forEach((budget) => {
+      let percent = (27.02 * (100 - parseInt(budget.innerHTML, 10))) / 100;
+      for (let i = 0; i <= budgetPercentage.length; i++) {
+        if (budget == budgetPercentage[i])
+          budgetProgress[i].style.strokeDashoffset = `${percent}rem`;
+      }
+    });
   });
 
   // Button animation
