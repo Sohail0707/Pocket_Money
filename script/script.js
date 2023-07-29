@@ -117,15 +117,81 @@ logoAlphabet.forEach((alphabet) => {
 });
 
 // ////////////////////////////////////////////////////////////////////////
+// This will only work when in budget /////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////
+if (pathName === "/budget") {
+  const budgetForm = document.querySelectorAll("#budget .budget");
+
+  const buEditBtn = document.querySelectorAll(".budget .btnEdit"),
+    buSubmitBtn = document.querySelectorAll(".budget .btnSubmit"),
+    buCloseBtn = document.querySelectorAll(".budget .btnClose");
+
+  const budgetAmount = document.querySelectorAll(".budget #budget_amount"),
+    budgetName = document.querySelectorAll(".budget #budget_name");
+
+  buEditBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      for (let i = 0; i <= buEditBtn.length; i++) {
+        if (btn == buEditBtn[i]) {
+          budgetForm[i].classList.add("open");
+          budgetAmount[i].removeAttribute("disabled");
+          budgetName[i].removeAttribute("disabled");
+          budgetAmount[i].focus();
+        }
+      }
+    });
+  });
+
+  buCloseBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      for (let i = 0; i <= buCloseBtn.length; i++) {
+        if (btn == buCloseBtn[i]) {
+          budgetForm[i].classList.remove("open");
+          budgetForm[i].reset();
+
+          budgetAmount[i].setAttribute("disabled", "true");
+          budgetName[i].setAttribute("disabled", "true");
+        }
+      }
+    });
+  });
+
+  buSubmitBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      for (let i = 0; i <= buSubmitBtn.length; i++) {
+        if (btn == buSubmitBtn[i]) {
+          budgetForm[i].classList.remove("open");
+          budgetForm[i].submit();
+
+          budgetAmount[i].setAttribute("disabled", "true");
+          budgetName[i].setAttribute("disabled", "true");
+        }
+      }
+    });
+  });
+}
+
+// ////////////////////////////////////////////////////////////////////////
 // This will only work when in transaction ////////////////////////////////
 // ////////////////////////////////////////////////////////////////////////
 if (pathName === "/transaction") {
   const transactionItem = document.querySelectorAll(".list_section .item");
 
-  const trEditBtn = document.querySelectorAll(".list_section .btnEdit");
-  const trSubmitBtn = document.querySelectorAll(".list_section .btnSubmit");
-  const trCloseBtn = document.querySelectorAll(".list_section .btnClose");
-  const trComment = document.querySelectorAll(".list_section .comment");
+  const trEditBtn = document.querySelectorAll(".list_section .btnEdit"),
+    trSubmitBtn = document.querySelectorAll(".list_section .btnSubmit"),
+    trCloseBtn = document.querySelectorAll(".list_section .btnClose");
+
+  // -------------------------------------------
+  const trCategory = document.querySelectorAll(".item #category_name"),
+    trAmount = document.querySelectorAll(".item #transaction_amount"),
+    trComment = document.querySelectorAll(".item #comment");
+
+  const trInputs = document.querySelectorAll(".item input");
+  trInputs.forEach((input) => {
+    input.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  });
 
   transactionItem.forEach((item) => {
     item.addEventListener("click", function () {
@@ -142,6 +208,10 @@ if (pathName === "/transaction") {
       for (let i = 0; i <= trEditBtn.length; i++) {
         if (btn == trEditBtn[i]) {
           transactionItem[i].classList.add("edit");
+          trCategory[i].removeAttribute("disabled");
+          trAmount[i].removeAttribute("disabled");
+          trComment[i].removeAttribute("disabled");
+          trAmount[i].focus();
         }
       }
     });
@@ -154,6 +224,26 @@ if (pathName === "/transaction") {
         if (btn == trCloseBtn[i]) {
           transactionItem[i].classList.remove("open");
           transactionItem[i].classList.add("close");
+          trCategory[i].setAttribute("disabled", "true");
+          trAmount[i].setAttribute("disabled", "true");
+          trComment[i].setAttribute("disabled", "true");
+          transactionItem[i].reset();
+        }
+      }
+    });
+  });
+
+  trSubmitBtn.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      for (let i = 0; i <= trCloseBtn.length; i++) {
+        if (btn == trSubmitBtn[i]) {
+          transactionItem[i].classList.remove("open");
+          transactionItem[i].classList.add("close");
+          trCategory[i].setAttribute("disabled", "true");
+          trAmount[i].setAttribute("disabled", "true");
+          trComment[i].setAttribute("disabled", "true");
+          transactionItem[i].submit();
         }
       }
     });

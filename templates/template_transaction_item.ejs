@@ -1,21 +1,44 @@
-<div class="item component_shadow">
+<!-- When a user will submit this form. the data should be updated -->
+<form action="" class="item component_shadow">
   <div class="top_box">
-    <h4 class="txt h4_medium">{%TRANSACTION_CATEGORY%}</h4>
+    <input
+      type="text"
+      name=""
+      class="txt h4_medium"
+      id="category_name"
+      value="{%TRANSACTION_CATEGORY%}"
+      disabled />
+
     <div class="value_box">
-      <h4 class="h4_medium {%TRANSACTION_TYPE%}">{%TRANSACTION_AMOUNT%}</h4>
-      <button class="btn btnEdit">
+      <input
+        type="text"
+        class="h4_medium {%TRANSACTION_TYPE%}"
+        name=""
+        id="transaction_amount"
+        value="{%TRANSACTION_AMOUNT%}"
+        disabled />
+
+      <button class="btn btnEdit" type="button">
         <i name="pencil_solid"></i>
       </button>
-      <button class="btn btnSubmit">
+
+      <button class="btn btnSubmit" type="button">
         <i name="tick_outline"></i>
       </button>
-      <button class="btn btnClose">
+
+      <button class="btn btnClose" type="button">
         <i name="close_outline"></i>
       </button>
     </div>
   </div>
 
   <div class="bottom_box comment">
-    <h6 class="h6_medium">{%TRANSACTION_COMMENT%}</h6>
+    <input
+      type="text"
+      class="h6_medium"
+      name=""
+      id="comment"
+      value="{%TRANSACTION_COMMENT%}"
+      disabled />
   </div>
-</div>
+</form>

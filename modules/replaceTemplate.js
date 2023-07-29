@@ -12,33 +12,33 @@ module.exports = (temp, dataObj, i, parameter) => {
     }
 
     output = temp.replace(
-      /{%LOGO_ALPHABET%}/,
+      /{%LOGO_ALPHABET%}/g,
       dataObj[0].budget[i.toString()].logo_alphabet
     );
     output = output.replace(
-      /{%BUDGET_NAME%}/,
+      /{%BUDGET_NAME%}/g,
       dataObj[0].budget[i.toString()].name
     );
     output = output.replace(
-      /{%BUDGET_AMOUNT%}/,
-      dataObj[0].budget[i.toString()].monthly_amount
+      /{%BUDGET_AMOUNT%}/g,
+      `$${dataObj[0].budget[i.toString()].monthly_amount}`
     );
-    output = output.replace(/{%SPEND_AMOUNT%}/, spend_amount);
-    output = output.replace(/{%BUDGET_PERCENTAGE%}/, percentage);
+    output = output.replace(/{%SPEND_AMOUNT%}/g, spend_amount);
+    output = output.replace(/{%BUDGET_PERCENTAGE%}/g, percentage);
   }
 
   // ////////////////////////////////////////////////////////////
   if (parameter === 2) {
     output = temp.replace(
-      /{%LOGO_ALPHABET%}/,
+      /{%LOGO_ALPHABET%}/g,
       dataObj[0].budget[i.toString()].logo_alphabet
     );
     output = output.replace(
-      /{%BUDGET_NAME%}/,
+      /{%BUDGET_NAME%}/g,
       dataObj[0].budget[i.toString()].name
     );
     output = output.replace(
-      /{%BUDGET_AMOUNT%}/,
+      /{%BUDGET_AMOUNT%}/g,
       dataObj[0].budget[i.toString()].monthly_amount
     );
   }
@@ -46,30 +46,30 @@ module.exports = (temp, dataObj, i, parameter) => {
   // /////////////////////////////////////////////////////////////
   if (parameter === 3) {
     output = temp.replace(
-      /{%TRANSACTION_CATEGORY%}/,
+      /{%TRANSACTION_CATEGORY%}/g,
       dataObj[0].transaction[i.toString()].category
     );
 
     output = output.replace(
-      /{%TRANSACTION_TYPE%}/,
+      /{%TRANSACTION_TYPE%}/g,
       dataObj[0].transaction[i.toString()].type
     );
 
     // To place a -ve or +ve sign before amount
     if (dataObj[0].transaction[i.toString()].type === "spend") {
       output = output.replace(
-        /{%TRANSACTION_AMOUNT%}/,
+        /{%TRANSACTION_AMOUNT%}/g,
         `-${dataObj[0].transaction[i.toString()].amount}`
       );
     } else if (dataObj[0].transaction[i.toString()].type === "earn") {
       output = output.replace(
-        /{%TRANSACTION_AMOUNT%}/,
+        /{%TRANSACTION_AMOUNT%}/g,
         `+${dataObj[0].transaction[i.toString()].amount}`
       );
     }
 
     output = output.replace(
-      /{%TRANSACTION_COMMENT%}/,
+      /{%TRANSACTION_COMMENT%}/g,
       dataObj[0].transaction[i.toString()].comment
     );
   }

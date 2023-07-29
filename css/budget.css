@@ -33,10 +33,12 @@
   scrollbar-width: none; /* Firefox */
 }
 
+/* Editing the budget template ///////////// */
 #budget .budget {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.6rem;
   padding: 1.6rem;
   border-radius: 1.6rem;
   background: var(--color_white);
@@ -68,13 +70,28 @@
   height: 100%;
 }
 
-#budget .budget .left_box .right .amount {
+/* Editing the input fields of the budget template */
+#budget .budget input {
+  display: inline;
+  outline: none;
+  border: none;
+  height: 1.6rem;
+  background: transparent;
+  max-width: 10rem;
+}
+
+#budget .budget .txt {
+  color: var(--color_dark);
+}
+
+#budget .budget .amount {
   color: var(--color_primary);
 }
 
-#budget .budget .left_box .right .txt {
-  color: var(--color_dark);
+#budget .budget span {
+  color: var(--color_primary);
 }
+/* ------------------------------------- */
 
 #budget .budget .right_box {
   position: relative;
@@ -83,6 +100,7 @@
   gap: 1.6rem;
 }
 
+/* Editing the buttons of budget template */
 #budget .budget .btn {
   display: flex;
   align-items: center;
@@ -107,24 +125,36 @@
   filter: drop-shadow(0px 1.5px 3px rgba(0, 0, 0, 0.2));
 }
 
+/* Edit button */
 #budget .budget .btnEdit {
   color: var(--color_primary);
   background: var(--color_light);
 }
+/* Close button */
 #budget .budget .btnClose {
   color: var(--color_red);
   background: var(--color_lite_red);
-
   display: none;
 }
+/* Submit button */
 #budget .budget .btnSubmit {
   color: var(--color_green);
   background: var(--color_lite_green);
-
   display: none;
 }
 
-/* //////////////////////////////////////// */
+/* Buttons for open state */
+#budget .open .btnEdit {
+  display: none;
+}
+#budget .open .btnClose {
+  display: flex;
+}
+#budget .open .btnSubmit {
+  display: flex;
+}
+
+/* Add button in the budget section */
 #budget .btnAdd {
   display: flex;
   align-items: center;
