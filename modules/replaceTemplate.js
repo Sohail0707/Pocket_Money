@@ -1,6 +1,7 @@
 module.exports = (temp, dataObj, i, parameter) => {
   let output = "";
 
+  // Will replace all placeholder of dashboard
   if (parameter === 1) {
     let budget_amount = dataObj[0].budget[i].monthly_amount;
     let budget_name = dataObj[0].budget[i].name;
@@ -25,6 +26,7 @@ module.exports = (temp, dataObj, i, parameter) => {
   }
 
   // ////////////////////////////////////////////////////////////
+  // Will replace all placeholder of budget
   if (parameter === 2) {
     output = temp.replace(
       /{%LOGO_ALPHABET%}/g,
@@ -38,6 +40,7 @@ module.exports = (temp, dataObj, i, parameter) => {
   }
 
   // /////////////////////////////////////////////////////////////
+  // Will replace all placeholder of transaction
   if (parameter === 3) {
     output = temp.replace(
       /{%TRANSACTION_CATEGORY%}/g,

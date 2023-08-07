@@ -43,6 +43,9 @@ if (pathName === "/dashboard") {
   const btnIncome = document.querySelector("#dashboard .btn_income");
   const btnExpense = document.querySelector("#dashboard .btn_expense");
   const totalBox = document.querySelector("#dashboard .main_container .total");
+  const incomeExpenseSection = document.querySelector(
+    "#dashboard .main_container .income_expense_section"
+  );
 
   btnIncome.addEventListener("click", function () {
     indicator.style.transform = "translateX(0)";
@@ -54,6 +57,12 @@ if (pathName === "/dashboard") {
     totalBox.classList.contains("income")
       ? ""
       : totalBox.classList.add("income");
+
+    incomeExpenseSection.classList.remove("spend");
+
+    incomeExpenseSection.classList.contains("earn")
+      ? ""
+      : incomeExpenseSection.classList.add("earn");
   });
 
   btnExpense.addEventListener("click", function () {
@@ -66,10 +75,12 @@ if (pathName === "/dashboard") {
     totalBox.classList.contains("expense")
       ? ""
       : totalBox.classList.add("expense");
+    incomeExpenseSection.classList.remove("earn");
+    incomeExpenseSection.classList.add("spend");
   });
 
-  const budgetPercentage = document.querySelectorAll(".budget .percentage");
-  const budgetProgress = document.querySelectorAll(".budget .circle");
+  const budgetPercentage = document.querySelectorAll(".budget_cir .percentage");
+  const budgetProgress = document.querySelectorAll(".budget_cir .circle");
 
   window.addEventListener("load", function () {
     budgetPercentage.forEach((budget) => {

@@ -44,6 +44,27 @@
       "Real estate": 1600
     },
 
+    "monthly_total": {
+      "earn": {
+        "total": 120035,
+        "online": 3284,
+        "cash": 3000,
+        "bank": 3200
+      },
+
+      "spend": {
+        "total": 11023,
+        "online": 3004,
+        "cash": 2200,
+        "bank": 1100
+      }
+    },
+
+    "annual_total": {
+      "bank": 234578,
+      "cash": 4500
+    },
+
     "transaction": [
       {
         "date": "11-07-2023",

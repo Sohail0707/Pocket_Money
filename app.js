@@ -96,6 +96,80 @@ app.get("/dashboard", (req, res) => {
                 );
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
+              // replacing total wealth, bank and cash
+              result = result.replace(
+                /{%TOTAL_BANK%}/,
+                dataObj[0].annual_total.bank
+              );
+              result = result.replace(
+                /{%TOTAL_CASH%}/,
+                dataObj[0].annual_total.cash
+              );
+              result = result.replace(
+                /{%TOTAL_WEALTH%}/,
+                dataObj[0].annual_total.bank + dataObj[0].annual_total.cash
+              );
+
+              // replacing total spend, earning, online, cash and bank
+              result = result.replace(
+                /{%TOTAL_EARN%}/,
+                dataObj[0].monthly_total.earn.total
+              );
+              result = result.replace(
+                /{%TOTAL_SPEND%}/,
+                dataObj[0].monthly_total.spend.total
+              );
+
+              // replacing online amount
+              result = result.replace(
+                /{%ONLINE_EARN_AMOUNT%}/,
+                dataObj[0].monthly_total.earn.online
+              );
+              result = result.replace(
+                /{%ONLINE_SPEND_AMOUNT%}/,
+                dataObj[0].monthly_total.spend.online
+              );
+
+              // replacing cash amount
+              result = result.replace(
+                /{%CASH_EARN_AMOUNT%}/,
+                dataObj[0].monthly_total.earn.cash
+              );
+              result = result.replace(
+                /{%CASH_SPEND_AMOUNT%}/,
+                dataObj[0].monthly_total.spend.cash
+              );
+
+              // replacing bank amount
+              result = result.replace(
+                /{%BANK_EARN_AMOUNT%}/,
+                dataObj[0].monthly_total.earn.bank
+              );
+              result = result.replace(
+                /{%BANK_SPEND_AMOUNT%}/,
+                dataObj[0].monthly_total.spend.bank
+              );
+
+              // Budget amount and parcentage
+              let totalBudget = 0;
+              for (let i = 0; i < dataObj[0].budget.length; i++) {
+                totalBudget += dataObj[0].budget[i].monthly_amount;
+                console.log(totalBudget);
+              }
+
+              let parcentage = (
+                (dataObj[0].monthly_total.spend.total / totalBudget) *
+                100
+              ).toFixed(1);
+              result = result.replace(
+                /{%TOTAL_BUDGET_PERCENTAGE%}/,
+                parcentage
+              );
+              result = result.replace(/{%TOTAL_BUDGET%}/, totalBudget);
+              result = result.replace(
+                /{%SPEND_BUDGET%}/,
+                dataObj[0].monthly_total.spend.total
+              );
 
               result = result.replace(
                 /{%CSS%}/,
@@ -196,7 +270,7 @@ app.get("/transaction", (req, res) => {
                     // Current date to compare with the previous one
                     let currentDate = dataObj[0].transaction[i - 1].date;
 
-                    // Checking for the date change/////////////
+                    // Checking for the date change
                     if (currentDate != previousDate) {
                       transaction_list += date_tag.replace(
                         /{%DATE%}/g,

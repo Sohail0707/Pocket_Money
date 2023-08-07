@@ -46,12 +46,14 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
+  padding: 0 2.4rem;
 }
 
 .top_container .left,
 .top_container .right {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 0.8rem;
   padding: 1.6rem 2.4rem;
   border-radius: 1.6rem;
@@ -189,7 +191,18 @@
   transform: rotate(35deg);
 }
 
-/* ////////////////////////////////////////////////// */
+/* ///////////// Online, Bank & Cash section ///////////// */
+/* /////////////////////////////////////////////////////// */
+.income_expense_section.spend .earn_amount,
+.income_expense_section.spend .total_earn {
+  display: none;
+}
+
+.income_expense_section.earn .spend_amount,
+.income_expense_section.earn .total_spend {
+  display: none;
+}
+
 .cash_container,
 .online_container,
 .bank_container {

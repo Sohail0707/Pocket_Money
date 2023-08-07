@@ -3,22 +3,22 @@
     <div class="top_container">
       <div class="top">
         <h5 class="txt h5_medium">your wealth</h5>
-        <h1 class="wealth h1_semi text_shadow">$ 2457700.00</h1>
+        <h1 class="wealth h1_semi text_shadow">$ {%TOTAL_WEALTH%}</h1>
       </div>
       <div class="bottom">
         <div class="left component_shadow">
           <h5 class="mode h5_medium">cash</h5>
-          <h4 class="amount h4_medium">$ 567800.00</h4>
+          <h4 class="amount h4_medium">$ {%TOTAL_CASH%}</h4>
         </div>
         <div class="right component_shadow">
           <h5 class="mode h5_medium">bank</h5>
-          <h4 class="amount h4_medium">$ 567800.00</h4>
+          <h4 class="amount h4_medium">$ {%TOTAL_BANK%}</h4>
         </div>
       </div>
     </div>
 
     <div class="main_container">
-      <section class="income_expense_section">
+      <section class="income_expense_section earn">
         <div class="income_expense component_shadow">
           <div class="top">
             <span class="indicator"></span>
@@ -34,7 +34,8 @@
           </div>
 
           <div class="bottom total">
-            <h3 class="h3_medium">$ 4328000.00</h3>
+            <h3 class="h3_medium total_earn">$ {%TOTAL_EARN%}</h3>
+            <h3 class="h3_medium total_spend">$ {%TOTAL_SPEND%}</h3>
             <i name="arrow_outline"></i>
           </div>
         </div>
@@ -46,7 +47,10 @@
             <i name="qr_outline"></i>
             <h4 class="txt h4_semi">online</h4>
           </div>
-          <h4 class="amount h4_medium">$ 4328000.00</h4>
+          <h4 class="amount h4_medium earn_amount">$ {%ONLINE_EARN_AMOUNT%}</h4>
+          <h4 class="amount h4_medium spend_amount">
+            $ {%ONLINE_SPEND_AMOUNT%}
+          </h4>
         </div>
 
         <div class="cash_container component_shadow">
@@ -54,7 +58,8 @@
             <i name="cash_outline"></i>
             <h4 class="txt h4_semi">cash</h4>
           </div>
-          <h4 class="amount h4_medium">$ 4328000.00</h4>
+          <h4 class="amount h4_medium earn_amount">$ {%CASH_EARN_AMOUNT%}</h4>
+          <h4 class="amount h4_medium spend_amount">$ {%CASH_SPEND_AMOUNT%}</h4>
         </div>
 
         <div class="bank_container component_shadow">
@@ -62,20 +67,23 @@
             <i name="bank_outline"></i>
             <h4 class="txt h4_semi">bank</h4>
           </div>
-          <h4 class="amount h4_medium">$ 4328000.00</h4>
+          <h4 class="amount h4_medium earn_amount">$ {%BANK_EARN_AMOUNT%}</h4>
+          <h4 class="amount h4_medium spend_amount">$ {%BANK_SPEND_AMOUNT%}</h4>
         </div>
       </section>
 
       <!-- ///////////// Budget Section /////////////// -->
       <!-- //////////////////////////////////////////// -->
       <section class="budget_section">
-        <div class="budget_box component_shadow">
+        <div class="budget_box component_shadow budget_cir">
           <div class="left">
             <div class="top">
               <i name="budget_outline"></i>
               <h3 class="txt h3_semi">Your budget</h3>
             </div>
-            <h4 class="amount h4_semi text_shadow">$3700 / $24030</h4>
+            <h4 class="amount h4_semi text_shadow">
+              ${%SPEND_BUDGET%} / ${%TOTAL_BUDGET%}
+            </h4>
           </div>
 
           <div class="right">
@@ -88,7 +96,9 @@
                 stroke-linecap="round"
                 class="circle"></circle>
             </svg>
-            <h3 class="percentage h3_semi text_shadow">80%</h3>
+            <h3 class="percentage h3_semi text_shadow">
+              {%TOTAL_BUDGET_PERCENTAGE%}%
+            </h3>
           </div>
         </div>
         {%BUDGET_LIST%}
