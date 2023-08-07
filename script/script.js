@@ -97,6 +97,36 @@ if (pathName === "/dashboard") {
   addBtn.addEventListener("click", function () {
     addBtn.parentElement.classList.toggle("open");
   });
+
+  // the add transaction form saction
+  const inputCategory = document.querySelector("#addTransaction .category");
+  const categoryList = document.querySelector("#addTransaction .category_list");
+  const addCategory = document.querySelector(
+    "#addTransaction .category_list .addCategory"
+  );
+  const categoryItem = document.querySelectorAll(
+    "#addTransaction .category_list li"
+  );
+
+  const categoryArray = [];
+  categoryItem.forEach((item) => {
+    categoryArray.push(item.innerHTML);
+    item.addEventListener("click", function () {
+      inputCategory.value = item.innerHTML;
+      categoryList.style.display = "none";
+    });
+  });
+
+  addCategory.addEventListener("click", function () {
+    categoryArray.push(inputCategory.value);
+  });
+
+  inputCategory.addEventListener("focus", function () {
+    categoryList.style.display = "flex";
+  });
+  // inputCategory.addEventListener("blur", function () {
+  //   categoryList.style.display = "none";
+  // });
 }
 
 // ////////////////// Color of budget /////////////////////

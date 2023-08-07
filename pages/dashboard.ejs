@@ -111,6 +111,57 @@
   <button class="trBtn earnBtn"><i name="arrow_outline"></i></button>
   <button class="trBtn spendBtn"><i name="arrow_outline"></i></button>
   <div class="overlay"></div>
-  <form action="" id="addTransaction"></form>
+
+  <form action="" id="addTransaction">
+    <div class="main_form">
+      <div class="mode">
+        <input type="radio" name="mode" id="online" />
+        <label for="online">ONLINE</label>
+
+        <input type="radio" name="mode" id="cash" />
+        <label for="cash">CASH</label>
+
+        <input type="radio" name="mode" id="bank" />
+        <label for="bank">BANK</label>
+      </div>
+
+      <div class="category_box">
+        <input
+          type="text"
+          name=""
+          id=""
+          class="category h4_regular"
+          placeholder="Category" />
+        <ul class="category_list component_shadow">
+          <li>Grocery</li>
+          <li>Shopping</li>
+          <li>Cosmetics</li>
+          <button type="button" class="addCategory h4_medium">
+            ADD AS NEW
+          </button>
+        </ul>
+      </div>
+
+      <input
+        type="number"
+        name=""
+        id=""
+        class="amount h4_regular"
+        placeholder="Amount" />
+
+      <textarea
+        name=""
+        id=""
+        class="amount h4_regular"
+        placeholder="Your comment"></textarea>
+    </div>
+
+    <div class="btn_container">
+      <button type="reset" class="h4_medium btnReset btn_shadow">RESET</button>
+      <button type="submit" class="h4_medium btnSubmit btn_shadow">
+        SUBMIT
+      </button>
+    </div>
+  </form>
   <!-- ////////////////////////////////////////////////////////////// -->
 </main>

@@ -30,7 +30,10 @@ body {
   background: var(--color_light);
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 36rem;
 }
 
