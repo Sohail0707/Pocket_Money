@@ -2,7 +2,7 @@ module.exports = (temp, dataObj, i, parameter) => {
   let output = "";
 
   // Will replace all placeholder of dashboard
-  if (parameter === 1) {
+  if (parameter === "dashboard") {
     let budget_amount = dataObj[0].budget[i].monthly_amount;
     let budget_name = dataObj[0].budget[i].name;
     let spend_amount = dataObj[0].spend[budget_name];
@@ -23,6 +23,86 @@ module.exports = (temp, dataObj, i, parameter) => {
     );
     output = output.replace(/{%SPEND_AMOUNT%}/g, spend_amount);
     output = output.replace(/{%BUDGET_PERCENTAGE%}/g, percentage);
+
+    // replacing total wealth, bank and cash
+    output = output.replace(/{%TOTAL_BANK%}/, dataObj[0].annual_total.bank);
+    output = output.replace(/{%TOTAL_CASH%}/, dataObj[0].annual_total.cash);
+    output = output.replace(
+      /{%TOTAL_WEALTH%}/,
+      dataObj[0].annual_total.bank + dataObj[0].annual_total.cash
+    );
+
+    // replacing total spend, earning, online, cash and bank
+    output = output.replace(
+      /{%TOTAL_EARN%}/,
+      dataObj[0].monthly_total.earn.total
+    );
+    output = output.replace(
+      /{%TOTAL_SPEND%}/,
+      dataObj[0].monthly_total.spend.total
+    );
+
+    // replacing online amount
+    output = output.replace(
+      /{%ONLINE_EARN_AMOUNT%}/,
+      dataObj[0].monthly_total.earn.online
+    );
+    output = output.replace(
+      /{%ONLINE_SPEND_AMOUNT%}/,
+      dataObj[0].monthly_total.spend.online
+    );
+
+    // replacing cash amount
+    output = output.replace(
+      /{%CASH_EARN_AMOUNT%}/,
+      dataObj[0].monthly_total.earn.cash
+    );
+    output = output.replace(
+      /{%CASH_SPEND_AMOUNT%}/,
+      dataObj[0].monthly_total.spend.cash
+    );
+
+    // replacing bank amount
+    output = output.replace(
+      /{%BANK_EARN_AMOUNT%}/,
+      dataObj[0].monthly_total.earn.bank
+    );
+    output = output.replace(
+      /{%BANK_SPEND_AMOUNT%}/,
+      dataObj[0].monthly_total.spend.bank
+    );
+
+    // Budget amount and parcentage
+    let totalBudget = 0;
+    for (let i = 0; i < dataObj[0].budget.length; i++) {
+      totalBudget += dataObj[0].budget[i].monthly_amount;
+    }
+
+    let parcentage = (
+      (dataObj[0].monthly_total.spend.total / totalBudget) *
+      100
+    ).toFixed(1);
+    output = output.replace(/{%TOTAL_BUDGET_PERCENTAGE%}/, parcentage);
+    output = output.replace(/{%TOTAL_BUDGET%}/, totalBudget);
+    output = output.replace(
+      /{%SPEND_BUDGET%}/,
+      dataObj[0].monthly_total.spend.total
+    );
+
+    let earnElList = "";
+    let earnList = Object.keys(dataObj[0].earn);
+    for (let i = 0; i < earnList.length; i++) {
+      earnElList += `<li>${earnList[i]}</li>`;
+    }
+
+    let spendElList = "";
+    let spendList = Object.keys(dataObj[0].spend);
+    for (let i = 0; i < spendList.length; i++) {
+      spendElList += `<li>${spendList[i]}</li>`;
+    }
+
+    output = output.replace(/{%EARN_LIST%}/, earnElList);
+    output = output.replace(/{%SPEND_LIST%}/, spendElList);
   }
 
   // ////////////////////////////////////////////////////////////
