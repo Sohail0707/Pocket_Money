@@ -404,7 +404,6 @@
 /*////////// Add transaction section ////////// */
 /*/ //////////////////////////////////////////// */
 #addTransaction {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
 
@@ -416,28 +415,79 @@
   top: 0;
   left: 0;
   z-index: 5;
-  /* display: none; */
+  display: none;
 }
 
 #addTransaction .main_form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.4rem;
 }
 
 #addTransaction .mode {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
+  background: var(--color_light);
+  border-radius: 1.2rem;
+  z-index: 3;
+}
+
+#addTransaction label {
+  text-align: center;
+  padding: 1.2rem 0;
+  width: 100%;
+  position: relative;
+  color: var(--color_dark);
+
+  transition: all 0.3s;
+}
+#addTransaction .mode label[for="online"] {
+  color: var(--color_white);
+}
+
+#addTransaction .modeIndicator {
+  height: 100%;
+  width: calc(100% / 3);
+  border-radius: 1.2rem;
+  background: var(--color_primary_1);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.modeIndicator.left {
+  left: 0;
+  transform: translateX(0);
+}
+.modeIndicator.center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.modeIndicator.right {
+  left: 100%;
+  transform: translateX(-100%);
 }
 
 /* //////////////////////////////////////////////// */
 #addTransaction .category_box {
-  margin-top: 4.8rem;
   position: relative;
   width: 100%;
   background: transparent;
 }
+
+#addTransaction input[type="radio"] {
+  display: none;
+}
+
+#addTransaction.spend .category_box .earnCategory {
+  display: none;
+}
+/* #addTransaction.earn .category_box .spendCategory {
+  display: none;
+} */
 
 #addTransaction .category_box .category_list {
   position: absolute;
@@ -445,9 +495,9 @@
   bottom: -0.8rem;
   transform: translateY(100%);
   width: 100%;
-  height: 24rem;
   list-style: none;
   font-size: 1.6rem;
+  display: flex;
   flex-direction: column;
   gap: 0.8rem;
   padding: 1.2rem;
@@ -455,12 +505,19 @@
   border-radius: 0.8rem;
   overflow: auto;
 
-  display: none;
+  height: 0;
+  opacity: 0;
+  transition: height 0.3s;
 }
 
 #addTransaction input:focus,
 #addTransaction textarea:focus {
   background: var(--color_white);
+}
+
+#addTransaction .category_list.open {
+  height: 26rem;
+  opacity: 1;
 }
 
 #addTransaction .category_box .category_list li {
@@ -506,16 +563,28 @@
 #addTransaction .btnSubmit {
   border: none;
   padding: 1.6rem 3.2rem;
-  background: var(--color_green);
   color: var(--color_white);
   border-radius: 1.2rem;
   width: 100%;
 }
 
+#addTransaction [name="spend"] {
+  background: var(--color_red);
+}
+#addTransaction [name="earn"] {
+  background: var(--color_green);
+}
+
+#addTransaction.earn [name="spend"] {
+  display: none;
+}
+#addTransaction.spend [name="earn"] {
+  display: none;
+}
+
 #addTransaction .btnReset {
   background: transparent;
   border: 0;
-  /* border: 0.2rem solid var(--color_red); */
   background: var(--color_dark);
   color: var(--color_light);
   padding: 1.6rem 3.2rem;

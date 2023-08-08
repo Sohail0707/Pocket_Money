@@ -38,19 +38,19 @@ if (pathName === "/dashboard") {
   const topContainer = document.querySelector("#dashboard .top_container");
   mainContainer.style.marginTop = `${(topContainer.offsetHeight - 20) / 10}rem`;
 
-  // ///////// Dashboard indicator /////////
+  // ///////// Dashboard income/expense indicator /////////
   const indicator = document.querySelector("#dashboard .indicator");
-  const btnIncome = document.querySelector("#dashboard .btn_income");
-  const btnExpense = document.querySelector("#dashboard .btn_expense");
+  const incomeIndicator = document.querySelector("#dashboard .btn_income");
+  const expenseIndicator = document.querySelector("#dashboard .btn_expense");
   const totalBox = document.querySelector("#dashboard .main_container .total");
   const incomeExpenseSection = document.querySelector(
     "#dashboard .main_container .income_expense_section"
   );
 
-  btnIncome.addEventListener("click", function () {
+  incomeIndicator.addEventListener("click", function () {
     indicator.style.transform = "translateX(0)";
-    btnIncome.style.color = `var(--color_light)`;
-    btnExpense.style.color = `var(--color_dark)`;
+    incomeIndicator.style.color = `var(--color_light)`;
+    expenseIndicator.style.color = `var(--color_dark)`;
     totalBox.classList.contains("expense")
       ? totalBox.classList.remove("expense")
       : "";
@@ -65,10 +65,10 @@ if (pathName === "/dashboard") {
       : incomeExpenseSection.classList.add("earn");
   });
 
-  btnExpense.addEventListener("click", function () {
+  expenseIndicator.addEventListener("click", function () {
     indicator.style.transform = "translateX(100%)";
-    btnIncome.style.color = `var(--color_dark)`;
-    btnExpense.style.color = `var(--color_light)`;
+    incomeIndicator.style.color = `var(--color_dark)`;
+    expenseIndicator.style.color = `var(--color_light)`;
     totalBox.classList.contains("income")
       ? totalBox.classList.remove("income")
       : "";
@@ -79,6 +79,7 @@ if (pathName === "/dashboard") {
     incomeExpenseSection.classList.add("spend");
   });
 
+  // Adding the circles parcentage////////////////////
   const budgetPercentage = document.querySelectorAll(".budget_cir .percentage");
   const budgetProgress = document.querySelectorAll(".budget_cir .circle");
 
@@ -92,41 +93,111 @@ if (pathName === "/dashboard") {
     });
   });
 
-  // Button animation
+  // Add transaction btn animation
   const addBtn = document.querySelector("#dashboard .addBtn");
   addBtn.addEventListener("click", function () {
     addBtn.parentElement.classList.toggle("open");
   });
 
   // the add transaction form saction
-  const inputCategory = document.querySelector("#addTransaction .category");
-  const categoryList = document.querySelector("#addTransaction .category_list");
-  const addCategory = document.querySelector(
-    "#addTransaction .category_list .addCategory"
+  const transactionForm = document.querySelector("#addTransaction");
+  const btnSpend = document.querySelector(".spendBtn");
+  const btnEarn = document.querySelector(".earnBtn");
+
+  const categoryBox = document.querySelector("#addTransaction .category_box");
+  const earnCategory = document.querySelector(".category_box .earnCategory");
+  const spendCategory = document.querySelector(".category_box .spendCategory");
+
+  btnSpend.addEventListener("click", function () {
+    transactionForm.style.display = "flex";
+    transactionForm.classList.contains("spend")
+      ? ""
+      : transactionForm.classList.add("spend");
+
+    categoryBox.removeChild(earnCategory);
+    dropDownCategory();
+  });
+
+  btnEarn.addEventListener("click", function () {
+    transactionForm.style.display = "flex";
+    transactionForm.classList.contains("earn")
+      ? ""
+      : transactionForm.classList.add("earn");
+
+    categoryBox.removeChild(spendCategory);
+    dropDownCategory();
+  });
+
+  // the drop down category menu
+  function dropDownCategory() {
+    const inputCategory = document.querySelector("#addTransaction .category");
+    const categoryList = document.querySelector(
+      "#addTransaction .category_list"
+    );
+    const addCategory = document.querySelector(
+      "#addTransaction .category_list .addCategory"
+    );
+    const categoryItem = document.querySelectorAll(
+      "#addTransaction .category_list li"
+    );
+
+    const categoryArray = [];
+    categoryItem.forEach((item) => {
+      categoryArray.push(item.innerHTML);
+      item.addEventListener("click", function () {
+        inputCategory.value = item.innerHTML;
+        categoryList.classList.remove("open");
+      });
+    });
+
+    addCategory.addEventListener("click", function () {
+      categoryArray.push(inputCategory.value);
+      if (inputCategory.value != "") categoryList.classList.remove("open");
+    });
+
+    inputCategory.addEventListener("focus", function () {
+      categoryList.classList.add("open");
+    });
+  }
+
+  // Mode Label style
+  const modeLabels = document.querySelectorAll("#addTransaction label");
+  const modeRadioBtn = document.querySelectorAll(
+    "#addTransaction input[type='radio']"
   );
-  const categoryItem = document.querySelectorAll(
-    "#addTransaction .category_list li"
+  const modeIndicator = document.querySelector(
+    "#addTransaction .modeIndicator"
   );
 
-  const categoryArray = [];
-  categoryItem.forEach((item) => {
-    categoryArray.push(item.innerHTML);
-    item.addEventListener("click", function () {
-      inputCategory.value = item.innerHTML;
-      categoryList.style.display = "none";
+  modeRadioBtn.forEach((btn) => {
+    btn.addEventListener("change", function () {
+      if (btn == modeRadioBtn[0]) {
+        modeIndicator.classList.add("left");
+        modeIndicator.classList.remove("right");
+        modeIndicator.classList.remove("center");
+
+        modeLabels[0].style.color = `var(--color_white)`;
+        modeLabels[1].style.color = `var(--color_dark)`;
+        modeLabels[2].style.color = `var(--color_dark)`;
+      }
+      if (btn == modeRadioBtn[1]) {
+        modeIndicator.classList.remove("left");
+        modeIndicator.classList.remove("right");
+        modeIndicator.classList.add("center");
+        modeLabels[0].style.color = `var(--color_dark)`;
+        modeLabels[1].style.color = `var(--color_white)`;
+        modeLabels[2].style.color = `var(--color_dark)`;
+      }
+      if (btn == modeRadioBtn[2]) {
+        modeIndicator.classList.remove("left");
+        modeIndicator.classList.add("right");
+        modeIndicator.classList.remove("center");
+        modeLabels[0].style.color = `var(--color_dark)`;
+        modeLabels[1].style.color = `var(--color_dark)`;
+        modeLabels[2].style.color = `var(--color_white)`;
+      }
     });
   });
-
-  addCategory.addEventListener("click", function () {
-    categoryArray.push(inputCategory.value);
-  });
-
-  inputCategory.addEventListener("focus", function () {
-    categoryList.style.display = "flex";
-  });
-  // inputCategory.addEventListener("blur", function () {
-  //   categoryList.style.display = "none";
-  // });
 }
 
 // ////////////////// Color of budget /////////////////////

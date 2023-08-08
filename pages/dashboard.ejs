@@ -114,15 +114,16 @@
 
   <form action="" id="addTransaction">
     <div class="main_form">
-      <div class="mode">
+      <div class="mode component_shadow">
         <input type="radio" name="mode" id="online" />
-        <label for="online">ONLINE</label>
+        <label for="online" class="h4_medium">ONLINE</label>
 
         <input type="radio" name="mode" id="cash" />
-        <label for="cash">CASH</label>
+        <label for="cash" class="h4_medium">CASH</label>
 
         <input type="radio" name="mode" id="bank" />
-        <label for="bank">BANK</label>
+        <label for="bank" class="h4_medium bank_label">BANK</label>
+        <span class="modeIndicator left"></span>
       </div>
 
       <div class="category_box">
@@ -132,10 +133,18 @@
           id=""
           class="category h4_regular"
           placeholder="Category" />
-        <ul class="category_list component_shadow">
+        <ul class="spendCategory category_list component_shadow">
           <li>Grocery</li>
           <li>Shopping</li>
           <li>Cosmetics</li>
+          <button type="button" class="addCategory h4_medium">
+            ADD AS NEW
+          </button>
+        </ul>
+        <ul class="earnCategory category_list component_shadow">
+          <li>Salary</li>
+          <li>Pocket money</li>
+          <li>Real estate</li>
           <button type="button" class="addCategory h4_medium">
             ADD AS NEW
           </button>
@@ -158,8 +167,11 @@
 
     <div class="btn_container">
       <button type="reset" class="h4_medium btnReset btn_shadow">RESET</button>
-      <button type="submit" class="h4_medium btnSubmit btn_shadow">
-        SUBMIT
+      <button type="submit" name="spend" class="h4_medium btnSubmit btn_shadow">
+        SPEND
+      </button>
+      <button type="submit" name="earn" class="h4_medium btnSubmit btn_shadow">
+        EARN
       </button>
     </div>
   </form>
