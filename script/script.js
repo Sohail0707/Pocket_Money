@@ -295,6 +295,33 @@ if (pathName === "/budget") {
     console.log("clicked");
     addBudgetForm.style.display = "flex";
   });
+
+  const inputCategory = document.querySelector("#addBudget .category");
+  const categoryList = document.querySelector("#addBudget .category_list");
+  const addCategory = document.querySelector(
+    "#addBudget .category_list .addCategory"
+  );
+  const categoryItem = document.querySelectorAll(
+    "#addBudget .category_list li"
+  );
+
+  const categoryArray = [];
+  categoryItem.forEach((item) => {
+    categoryArray.push(item.innerHTML);
+    item.addEventListener("click", function () {
+      inputCategory.value = item.innerHTML;
+      categoryList.classList.remove("open");
+    });
+  });
+
+  addCategory.addEventListener("click", function () {
+    categoryArray.push(inputCategory.value);
+    if (inputCategory.value != "") categoryList.classList.remove("open");
+  });
+
+  inputCategory.addEventListener("focus", function () {
+    categoryList.classList.add("open");
+  });
 }
 
 // ////////////////////////////////////////////////////////////////////////

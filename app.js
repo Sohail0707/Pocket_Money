@@ -137,9 +137,15 @@ app.get("/budget", (req, res) => {
               // Join multiple template into one string
               let budget = "";
               for (let i = 1; i <= dataObj[0].budget.length; i++) {
-                budget += replaceTemplate(template_budget, dataObj, i - 1, 2);
+                budget += replaceTemplate(
+                  template_budget,
+                  dataObj,
+                  i - 1,
+                  "budget"
+                );
               }
               result = result.replace(/{%BUDGET_LIST%}/, budget);
+              result = replaceTemplate(result, dataObj, 0, "budget");
 
               // Attaching the related css files
               result = result.replace(

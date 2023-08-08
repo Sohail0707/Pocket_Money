@@ -107,7 +107,7 @@ module.exports = (temp, dataObj, i, parameter) => {
 
   // ////////////////////////////////////////////////////////////
   // Will replace all placeholder of budget
-  if (parameter === 2) {
+  if (parameter === "budget") {
     output = temp.replace(
       /{%LOGO_ALPHABET%}/g,
       dataObj[0].budget[i].logo_alphabet
@@ -117,6 +117,14 @@ module.exports = (temp, dataObj, i, parameter) => {
       /{%BUDGET_AMOUNT%}/g,
       dataObj[0].budget[i].monthly_amount
     );
+
+    let budgetElList = "";
+    for (let i = 0; i < dataObj[0].budget.length; i++) {
+      let budget = dataObj[0].budget[i].name;
+      budgetElList += `<li>${budget}</li>`;
+    }
+
+    output = output.replace(/{%CATEGORY_LIST%}/, budgetElList);
   }
 
   // /////////////////////////////////////////////////////////////
