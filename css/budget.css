@@ -174,3 +174,93 @@
   color: var(--color_light);
   filter: drop-shadow(0px 1.5px 3px rgba(0, 0, 0, 0.2));
 }
+
+/* /////////// Add new budget ///////////// */
+#addBudget {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4.8rem 3.2rem 3.2rem;
+  background: var(--color_white);
+  z-index: 3;
+}
+
+#addBudget .mainForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+#addBudget input {
+  border: 0;
+  outline: 0;
+  padding: 0.8rem;
+  width: 100%;
+  background: transparent;
+  border: 0.2rem solid var(--color_primary_1);
+  border-radius: 0.8rem;
+}
+#addBudget input:focus {
+  background: var(--color_light);
+}
+
+#addBudget .category_box {
+  position: relative;
+}
+
+#addBudget .category_box .category_list {
+  position: absolute;
+  left: 0;
+  bottom: -0.8rem;
+  transform: translateY(100%);
+  width: 100%;
+  list-style: none;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.2rem 1.2rem 5rem;
+  background: var(--color_light);
+  border-radius: 0.8rem;
+  overflow: auto;
+
+  height: 0;
+  opacity: 0;
+  transition: height 0.3s;
+}
+
+#addBudget .category_list.open {
+  height: 26rem;
+  opacity: 1;
+}
+
+#addBudget .category_box .category_list li {
+  padding: 1rem;
+  width: 100%;
+  color: var(--color_dark);
+}
+#addBudget .category_box .category_list .addCategory {
+  border: none;
+  padding: 1.6rem 3.2rem;
+  background: var(--color_primary_1);
+  color: var(--color_white);
+  /* border-radius: 1.2rem; */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#addBudget [name="addBudget"] {
+  border: none;
+  padding: 1.6rem 3.2rem;
+  color: var(--color_white);
+  background: var(--color_green);
+  border-radius: 1.2rem;
+  width: 100%;
+}

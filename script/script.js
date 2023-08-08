@@ -288,6 +288,13 @@ if (pathName === "/budget") {
       }
     });
   });
+
+  const addBudgetBtn = document.querySelector("#budget .btnAdd");
+  const addBudgetForm = document.querySelector("#addBudget");
+  addBudgetBtn.addEventListener("click", function () {
+    console.log("clicked");
+    addBudgetForm.style.display = "flex";
+  });
 }
 
 // ////////////////////////////////////////////////////////////////////////
