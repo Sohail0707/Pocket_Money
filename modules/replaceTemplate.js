@@ -25,51 +25,59 @@ module.exports = (temp, dataObj, i, parameter) => {
     output = output.replace(/{%BUDGET_PERCENTAGE%}/g, percentage);
 
     // replacing total wealth, bank and cash
-    output = output.replace(/{%TOTAL_BANK%}/, dataObj[0].annual_total.bank);
-    output = output.replace(/{%TOTAL_CASH%}/, dataObj[0].annual_total.cash);
+    output = output.replace(
+      /{%TOTAL_BANK%}/,
+      parseFloat(dataObj[0].annual_total.bank).toFixed(2)
+    );
+    output = output.replace(
+      /{%TOTAL_CASH%}/,
+      parseFloat(dataObj[0].annual_total.cash).toFixed(2)
+    );
     output = output.replace(
       /{%TOTAL_WEALTH%}/,
-      dataObj[0].annual_total.bank + dataObj[0].annual_total.cash
+      parseFloat(
+        dataObj[0].annual_total.bank + dataObj[0].annual_total.cash
+      ).toFixed(2)
     );
 
     // replacing total spend, earning, online, cash and bank
     output = output.replace(
       /{%TOTAL_EARN%}/,
-      dataObj[0].monthly_total.earn.total
+      parseFloat(dataObj[0].monthly_total.earn.total).toFixed(2)
     );
     output = output.replace(
       /{%TOTAL_SPEND%}/,
-      dataObj[0].monthly_total.spend.total
+      parseFloat(dataObj[0].monthly_total.spend.total).toFixed(2)
     );
 
     // replacing online amount
     output = output.replace(
       /{%ONLINE_EARN_AMOUNT%}/,
-      dataObj[0].monthly_total.earn.online
+      parseFloat(dataObj[0].monthly_total.earn.online).toFixed(2)
     );
     output = output.replace(
       /{%ONLINE_SPEND_AMOUNT%}/,
-      dataObj[0].monthly_total.spend.online
+      parseFloat(dataObj[0].monthly_total.spend.online).toFixed(2)
     );
 
     // replacing cash amount
     output = output.replace(
       /{%CASH_EARN_AMOUNT%}/,
-      dataObj[0].monthly_total.earn.cash
+      parseFloat(dataObj[0].monthly_total.earn.cash).toFixed(2)
     );
     output = output.replace(
       /{%CASH_SPEND_AMOUNT%}/,
-      dataObj[0].monthly_total.spend.cash
+      parseFloat(dataObj[0].monthly_total.spend.cash).toFixed(2)
     );
 
     // replacing bank amount
     output = output.replace(
       /{%BANK_EARN_AMOUNT%}/,
-      dataObj[0].monthly_total.earn.bank
+      parseFloat(dataObj[0].monthly_total.earn.bank).toFixed(2)
     );
     output = output.replace(
       /{%BANK_SPEND_AMOUNT%}/,
-      dataObj[0].monthly_total.spend.bank
+      parseFloat(dataObj[0].monthly_total.spend.bank).toFixed(2)
     );
 
     // Budget amount and parcentage

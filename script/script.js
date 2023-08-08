@@ -425,4 +425,27 @@ if (pathName === "/transaction") {
       field.style.maxWidth = `${((fontSizeValue / 2) * letterNum) / 8}rem`;
     });
   });
+
+  // ////////////////////////////////////////////////////
+  //  Filter section ////////////////////////////////////
+  const btnDuration = document.querySelector("#durationForm input");
+  const durationEl = document.querySelectorAll("#durationForm ul li");
+  const durationContainer = document.querySelector("#transaction .duration");
+
+  durationContainer.addEventListener("click", function () {
+    durationContainer.classList.contains("open")
+      ? ""
+      : durationContainer.classList.add("open");
+  });
+
+  durationEl.forEach((el) => {
+    el.addEventListener("click", function (event) {
+      event.stopPropagation();
+      durationContainer.classList.contains("open")
+        ? durationContainer.classList.remove("open")
+        : "";
+
+      btnDuration.value = el.innerHTML;
+    });
+  });
 }

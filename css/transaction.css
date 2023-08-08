@@ -55,13 +55,23 @@
   left: 0;
 }
 
+/* Filter style //////// ////// */
+
 #transaction .duration ul {
   width: 100%;
   background: var(--color_white);
   list-style: none;
   display: flex;
   flex-direction: column;
-  display: none;
+  height: 0;
+  pointer-events: none;
+
+  transition: height 0.3s;
+}
+
+#transaction .open.duration ul {
+  height: 100%;
+  pointer-events: all;
 }
 
 #transaction .duration ul li {
