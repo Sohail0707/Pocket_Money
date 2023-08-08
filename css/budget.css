@@ -228,13 +228,13 @@
   border-radius: 0.8rem;
   overflow: hidden;
 
-  height: 0;
+  max-height: 0;
   opacity: 0;
-  transition: height 0.3s;
+  transition: max-height 0.3s;
 }
 
 #addBudget .category_list.open {
-  height: 26rem;
+  max-height: 26rem;
   opacity: 1;
 }
 

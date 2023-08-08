@@ -134,6 +134,10 @@ if (pathName === "/dashboard") {
     const categoryList = document.querySelector(
       "#addTransaction .category_list"
     );
+
+    const categoryContainer = document.querySelector(
+      "#addTransaction .category_list .category_container"
+    );
     const addCategory = document.querySelector(
       "#addTransaction .category_list .addCategory"
     );
@@ -144,11 +148,40 @@ if (pathName === "/dashboard") {
     const categoryArray = [];
     categoryItem.forEach((item) => {
       categoryArray.push(item.innerHTML);
-      item.addEventListener("click", function () {
+      item.addEventListener("click", function (event) {
+        event.stopPropagation();
         inputCategory.value = item.innerHTML;
         categoryList.classList.remove("open");
       });
     });
+
+    // Getting text from search element
+    inputCategory.addEventListener("keyup", () => {
+      let arr = [];
+      let searchedVal = inputCategory.value.toLowerCase();
+      arr = categoryArray
+        .filter((data) => {
+          return data.toLowerCase().startsWith(searchedVal);
+        })
+        .map((data) => `<li>${data}</li>`)
+        .join("");
+
+      categoryContainer.innerHTML = arr;
+      closeList();
+    });
+
+    function closeList() {
+      const categoryItem = document.querySelectorAll(
+        "#addTransaction .category_list li"
+      );
+      categoryItem.forEach((item) => {
+        item.addEventListener("click", function (event) {
+          event.stopPropagation();
+          inputCategory.value = item.innerHTML;
+          categoryList.classList.remove("open");
+        });
+      });
+    }
 
     addCategory.addEventListener("click", function () {
       categoryArray.push(inputCategory.value);
@@ -292,12 +325,14 @@ if (pathName === "/budget") {
   const addBudgetBtn = document.querySelector("#budget .btnAdd");
   const addBudgetForm = document.querySelector("#addBudget");
   addBudgetBtn.addEventListener("click", function () {
-    console.log("clicked");
     addBudgetForm.style.display = "flex";
   });
 
   const inputCategory = document.querySelector("#addBudget .category");
   const categoryList = document.querySelector("#addBudget .category_list");
+  const categoryContainer = document.querySelector(
+    "#addBudget .category_list .category_container"
+  );
   const addCategory = document.querySelector(
     "#addBudget .category_list .addCategory"
   );
@@ -307,12 +342,42 @@ if (pathName === "/budget") {
 
   const categoryArray = [];
   categoryItem.forEach((item) => {
-    categoryArray.push(item.innerHTML);
-    item.addEventListener("click", function () {
-      inputCategory.value = item.innerHTML;
+    categoryArray.push(item.innerText);
+    item.addEventListener("click", function (event) {
+      event.stopPropagation();
+      inputCategory.value = item.innerText;
       categoryList.classList.remove("open");
     });
   });
+
+  // Getting text from search element
+  inputCategory.addEventListener("keyup", () => {
+    // console.log(inputCategory.value);
+    let arr = [];
+    let searchedVal = inputCategory.value.toLowerCase();
+    arr = categoryArray
+      .filter((data) => {
+        return data.toLowerCase().startsWith(searchedVal);
+      })
+      .map((data) => `<li>${data}</li>`)
+      .join("");
+
+    categoryContainer.innerHTML = arr;
+    closeList();
+  });
+
+  function closeList() {
+    const categoryItem = document.querySelectorAll(
+      "#addBudget .category_list li"
+    );
+    categoryItem.forEach((item) => {
+      item.addEventListener("click", function (event) {
+        event.stopPropagation();
+        inputCategory.value = item.innerHTML;
+        categoryList.classList.remove("open");
+      });
+    });
+  }
 
   addCategory.addEventListener("click", function () {
     categoryArray.push(inputCategory.value);
