@@ -186,7 +186,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 4.8rem 3.2rem 3.2rem;
-  background: var(--color_white);
+  background: var(--color_light);
   z-index: 3;
 }
 
@@ -206,7 +206,7 @@
   border-radius: 0.8rem;
 }
 #addBudget input:focus {
-  background: var(--color_light);
+  background: var(--color_white);
 }
 
 #addBudget .category_box {
@@ -225,7 +225,7 @@
   flex-direction: column;
   gap: 0.8rem;
   padding: 1.2rem 1.2rem 5rem;
-  background: var(--color_light);
+  background: var(--color_white);
   border-radius: 0.8rem;
   overflow: auto;
 
