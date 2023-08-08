@@ -126,6 +126,13 @@
         <span class="modeIndicator left"></span>
       </div>
 
+      <input
+        type="number"
+        name=""
+        id=""
+        class="amount h4_regular"
+        placeholder="Amount" />
+
       <div class="category_box">
         <input
           type="text"
@@ -134,25 +141,18 @@
           class="category h4_regular"
           placeholder="Category" />
         <ul class="spendCategory category_list component_shadow">
-          {%SPEND_LIST%}
+          <div class="category_container">{%SPEND_LIST%}</div>
           <button type="button" class="addCategory h4_medium">
             ADD AS NEW
           </button>
         </ul>
         <ul class="earnCategory category_list component_shadow">
-          {%EARN_LIST%}
+          <div class="category_container">{%EARN_LIST%}</div>
           <button type="button" class="addCategory h4_medium">
             ADD AS NEW
           </button>
         </ul>
       </div>
-
-      <input
-        type="number"
-        name=""
-        id=""
-        class="amount h4_regular"
-        placeholder="Amount" />
 
       <textarea
         name=""
