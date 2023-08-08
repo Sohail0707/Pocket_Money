@@ -242,6 +242,39 @@ app.get("/transaction", (req, res) => {
   );
 });
 
+// Route for profile
+// ///////////////////////////////////////////////
+app.get("/profile", (req, res) => {
+  fs.readFile(
+    `${__dirname}/pages/application_page.ejs`,
+    "utf-8",
+    (err, application_page) => {
+      fs.readFile(
+        `${__dirname}/pages/profile.ejs`,
+        "utf-8",
+        (err, profile_page) => {
+          let result = body.replace(/{%PAGE%}/, application_page);
+          result = result.replace(/{%PAGE%}/, profile_page);
+
+          result = result.replace(
+            /{%USER_NAME%}/,
+            `${dataObj[0].firstName} ${dataObj[0].lastName}`
+          );
+
+          result = result.replace(/{%EMAIL%}/, dataObj[0].email);
+
+          result = result.replace(
+            /{%CSS%}/,
+            `<link rel="stylesheet" href="navigation.css" />
+                 <link rel="stylesheet" href="profile.css" />`
+          );
+          res.send(result);
+        }
+      );
+    }
+  );
+});
+
 app.listen(1800, function () {
   console.log("Application started at port:1800");
 });
